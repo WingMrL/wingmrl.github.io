@@ -1,0 +1,567 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>CSS后代选择器与子选择器的性能对比 | WingUNO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="winguno">
+    
+
+    
+    <meta name="description" content="CSS后代选择器与子选择器的性能对比@(博客)[CSS]昨天在做CSS的时候，要选择一个id为xxx的div里面的img。当时我不知道要用子类选择器好呢，还是用后代选择器好？我感觉子类选择器的效率会高一点。因为我觉得子类选择器的范围小一点。哈哈！但是事实是不是这样呢？我们来看看以下文章：高性能CSS，里面写到：避免通配选择器, 我们来看看。CSS选择器对性能的影响源于浏览器匹配选择器和文档元素时所">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS后代选择器与子选择器的性能对比">
+<meta property="og:url" content="http://yoursite.com/2016/07/22/CSS后代选择器与子选择器的性能对比/index.html">
+<meta property="og:site_name" content="WingUNO">
+<meta property="og:description" content="CSS后代选择器与子选择器的性能对比@(博客)[CSS]昨天在做CSS的时候，要选择一个id为xxx的div里面的img。当时我不知道要用子类选择器好呢，还是用后代选择器好？我感觉子类选择器的效率会高一点。因为我觉得子类选择器的范围小一点。哈哈！但是事实是不是这样呢？我们来看看以下文章：高性能CSS，里面写到：避免通配选择器, 我们来看看。CSS选择器对性能的影响源于浏览器匹配选择器和文档元素时所">
+<meta property="og:updated_time" content="2016-07-22T03:52:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS后代选择器与子选择器的性能对比">
+<meta name="twitter:description" content="CSS后代选择器与子选择器的性能对比@(博客)[CSS]昨天在做CSS的时候，要选择一个id为xxx的div里面的img。当时我不知道要用子类选择器好呢，还是用后代选择器好？我感觉子类选择器的效率会高一点。因为我觉得子类选择器的范围小一点。哈哈！但是事实是不是这样呢？我们来看看以下文章：高性能CSS，里面写到：避免通配选择器, 我们来看看。CSS选择器对性能的影响源于浏览器匹配选择器和文档元素时所">
+
+    
+    <link rel="alternative" href="/atom.xml" title="WingUNO" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="WingUNO" title="WingUNO"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="WingUNO">WingUNO</a></h1>
+				<h2 class="blog-motto">In Simple Way.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/07/22/CSS后代选择器与子选择器的性能对比/" title="CSS后代选择器与子选择器的性能对比" itemprop="url">CSS后代选择器与子选择器的性能对比</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="winguno" target="_blank" itemprop="author">winguno</a>
+		
+  <p class="article-time">
+    <time datetime="2016-07-22T03:50:43.000Z" itemprop="datePublished"> Published 2016-07-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS后代选择器与子选择器的性能对比"><span class="toc-number">1.</span> <span class="toc-text">CSS后代选择器与子选择器的性能对比</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="CSS后代选择器与子选择器的性能对比"><a href="#CSS后代选择器与子选择器的性能对比" class="headerlink" title="CSS后代选择器与子选择器的性能对比"></a>CSS后代选择器与子选择器的性能对比</h1><p>@(博客)[CSS]<br>昨天在做CSS的时候，要选择一个id为xxx的div里面的img。当时我不知道要用子类选择器好呢，还是用后代选择器好？我感觉子类选择器的效率会高一点。因为我觉得子类选择器的范围小一点。哈哈！但是事实是不是这样呢？<br>我们来看看以下文章：<br><a href="http://www.alloyteam.com/2012/10/high-performance-css/" target="_blank" rel="external"><strong>高性能CSS</strong></a>，里面写到：<strong>避免通配选择器</strong>, 我们来看看。<br>CSS选择器对性能的影响源于浏览器匹配选择器和文档元素时所消耗的时间，所以优化选择器的原则是应尽量避免需要消耗更多匹配时间的选择器。而在这之前我们需要了解CSS选择器匹配的机制，如例子的<strong>子选择器</strong>规则：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#header</span> &gt; <span class="selector-tag">a</span> &#123;</div><div class="line">    <span class="attribute">font-weight</span>: bold;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我们中的大多数人都是从左到右的阅读习惯，<strong>可能也会习惯性的设定浏览器也是从左到右的方式进行匹配规则，因为会推测这条规则的开销并不高。</strong></p>
+<p>我们这样假象浏览器会像这样的方式工作：找到唯一的id为header为的元素，然后把这个样式规则应用到直系子元素中的a元素上。我们知道文档中只有一个id为header的元素，并且它只有几个a类型的子节点，所以这个CSS选择器应该相当高效。</p>
+<p>我开始就是以为是这样的。<strong>然而…</strong></p>
+<p><strong>事实上，却恰好相反，CSS选择器是从右到左进行规则匹配。了解这个机制后，例子中看似高效的选择器在实际中的匹配开销是很高的，浏览器必须遍历页面中所有的a元素并且确定其父元素的id是否为header。</strong><br>如果把例子的子选择器改为后代选择器则会开销更多，在遍历页面中所有a元素后还需向其上级遍历直到根节点。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#header</span> <span class="selector-tag">a</span> &#123;</div><div class="line">    <span class="attribute">font-weight</span>: bold;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li><strong>理解了CSS选择器从右到左匹配的机制后，可以理解选择器中最右边的规则往往决定了浏览器继续左移匹配的工作量，我们把最右边选择规则称之为关键选择器。</strong></li>
+</ul>
+<p><strong>上面这点非常重要：CSS选择器从右到左匹配的机制！！！</strong></p>
+<p>知道这一点之后，我们就比较容易知道怎样去优化CSS性能了。一些常见的可以去看看<a href="http://www.alloyteam.com/2012/10/high-performance-css/" target="_blank" rel="external"><strong>高性能CSS</strong></a> 。</p>
+<p>好了，总结一下。</p>
+<p>看来我觉得子选择器的性能好一点是对的！不过，理解出了问题！现在知道CSS的选择器从右到左匹配的机制之后就更加清晰了。</p>
+<p>既然了解了这种机制，所以我们写CSS的时候，就不要写太多级了，特别是最右为通配选择器的时候：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.mainDiv</span> <span class="selector-tag">span</span> <span class="selector-tag">a</span> &#123;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这个时候就要先在遍历页面中所有a元素后还需向其上级遍历直到根节点，太累了！</p>
+<p>参考AlloyTeam：<a href="http://www.alloyteam.com/2012/10/high-performance-css/" target="_blank" rel="external">http://www.alloyteam.com/2012/10/high-performance-css/</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Technology/">Technology</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CSS/">CSS</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/07/22/CSS后代选择器与子选择器的性能对比/" data-title="CSS后代选择器与子选择器的性能对比 | WingUNO" data-tsina="2242447003" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/07/24/爱心鱼小游戏/" title="爱心鱼小游戏">
+  <strong>上一篇：</strong><br/>
+  <span>
+  爱心鱼小游戏</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/07/12/JavaScript的继承/"  title="JavaScript的继承">
+ <strong>下一篇：</strong><br/> 
+ <span>JavaScript的继承
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/07/22/CSS后代选择器与子选择器的性能对比/" data-title="CSS后代选择器与子选择器的性能对比" data-url="http://yoursite.com/2016/07/22/CSS后代选择器与子选择器的性能对比/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS后代选择器与子选择器的性能对比"><span class="toc-number">1.</span> <span class="toc-text">CSS后代选择器与子选择器的性能对比</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="WingMrL" data-width="100%" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Technology/" title="Technology">Technology<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/ife/" title="ife">ife<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/面试/" title="面试">面试<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/排序/" title="排序">排序<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GitHub/" title="GitHub">GitHub<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C语言/" title="C语言">C语言<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PlayCanvas/" title="PlayCanvas">PlayCanvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ife/" title="ife">ife<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/浮动/" title="浮动">浮动<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://segmentfault.com/a/1190000002804472" target="_blank" title="github上值得关注的前端项目">Github前端项目</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://codingpoorcat.github.io/" target="_blank" title="Cat&#39;s Blog">Cat&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://xiguabanhua.github.io/" target="_blank" title="XiGua&#39;s Blog">XiGua&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m WingUNO. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2242447003" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/WingMrL" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/winguno" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:15622746317@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="winguno">winguno</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"winguno"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

@@ -1,0 +1,708 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>PlayCanvas技术文档 | WingUNO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="winguno">
+    
+
+    
+    <meta name="description" content="#PlayCanvas技术文档（持续更新）@(PlayCanvas Note)[HTML5, canvas]
+1. 快速入门
+强烈建议先看快速入门视频，再去看官方的Manual !1.1. YouTube上PlayCanvas的快速入门视频
+Getting Started with PlayCanvas - YouTube
+PlayCanvas Tutorial 1 - Getting start">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PlayCanvas技术文档">
+<meta property="og:url" content="http://yoursite.com/2016/09/05/PlayCanvas技术文档/index.html">
+<meta property="og:site_name" content="WingUNO">
+<meta property="og:description" content="#PlayCanvas技术文档（持续更新）@(PlayCanvas Note)[HTML5, canvas]
+1. 快速入门
+强烈建议先看快速入门视频，再去看官方的Manual !1.1. YouTube上PlayCanvas的快速入门视频
+Getting Started with PlayCanvas - YouTube
+PlayCanvas Tutorial 1 - Getting start">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/mesh_instance_one.png">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/pseudo_shadow.png">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/Offset_Tiling_Diffuse.png">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/Collision_detect.png">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/Collision_and_trigger.png">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/fnt_to_json.png">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/font_example.png">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/sprite_panel.png">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/sprite_and_font_example.png">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/sprite_touch_event.png">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/download_concatenate_scriptes.png">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/linear_and_angular_velocity.png">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/background_camera.png">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/update_material_expensive.png">
+<meta property="og:updated_time" content="2016-11-25T11:42:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PlayCanvas技术文档">
+<meta name="twitter:description" content="#PlayCanvas技术文档（持续更新）@(PlayCanvas Note)[HTML5, canvas]
+1. 快速入门
+强烈建议先看快速入门视频，再去看官方的Manual !1.1. YouTube上PlayCanvas的快速入门视频
+Getting Started with PlayCanvas - YouTube
+PlayCanvas Tutorial 1 - Getting start">
+<meta name="twitter:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/mesh_instance_one.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="WingUNO" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="WingUNO" title="WingUNO"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="WingUNO">WingUNO</a></h1>
+				<h2 class="blog-motto">In Simple Way.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/09/05/PlayCanvas技术文档/" title="PlayCanvas技术文档" itemprop="url">PlayCanvas技术文档</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="winguno" target="_blank" itemprop="author">winguno</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-05T12:09:28.000Z" itemprop="datePublished"> Published 2016-09-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-快速入门"><span class="toc-number">1.</span> <span class="toc-text">1. 快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-YouTube上PlayCanvas的快速入门视频"><span class="toc-number">1.1.</span> <span class="toc-text">1.1. YouTube上PlayCanvas的快速入门视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-PlayCanvas官方的Manual"><span class="toc-number">1.2.</span> <span class="toc-text">1.2. PlayCanvas官方的Manual</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-PlayCanvas的论坛Forum"><span class="toc-number">1.3.</span> <span class="toc-text">1.3. PlayCanvas的论坛Forum</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-优化"><span class="toc-number">2.</span> <span class="toc-text">2. 优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-最优化指导"><span class="toc-number">2.1.</span> <span class="toc-text">2.1. 最优化指导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-JavaScript"><span class="toc-number">2.1.1.</span> <span class="toc-text">2.1.1. JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-Graphics"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.1.2. Graphics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-Physics"><span class="toc-number">2.1.3.</span> <span class="toc-text">2.1.3. Physics</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-性能分析器"><span class="toc-number">2.2.</span> <span class="toc-text">2.2. 性能分析器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-性能最佳实践"><span class="toc-number">2.3.</span> <span class="toc-text">2.3. 性能最佳实践</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Q-amp-A"><span class="toc-number">3.</span> <span class="toc-text">3. Q&A</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-PlayCanvas里面的1Size在3DS-Max里面是多少米？"><span class="toc-number">3.1.</span> <span class="toc-text">3.1. PlayCanvas里面的1Size在3DS Max里面是多少米？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-如何实现碰撞检测？"><span class="toc-number">3.2.</span> <span class="toc-text">3.2. 如何实现碰撞检测？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-如何在游戏中使用贴图和特殊字体？"><span class="toc-number">3.3.</span> <span class="toc-text">3.3. 如何在游戏中使用贴图和特殊字体？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-游戏在安卓版微信上声音无法播放？"><span class="toc-number">3.4.</span> <span class="toc-text">3.4. 游戏在安卓版微信上声音无法播放？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-我的代码能同步到Github上吗？"><span class="toc-number">3.5.</span> <span class="toc-text">3.5. 我的代码能同步到Github上吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-如何把游戏部署到我们自己服务器？"><span class="toc-number">3.6.</span> <span class="toc-text">3.6. 如何把游戏部署到我们自己服务器？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-如何自定义loading界面？"><span class="toc-number">3.7.</span> <span class="toc-text">3.7. 如何自定义loading界面？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-8-如何使用HTML和CSS-？"><span class="toc-number">3.8.</span> <span class="toc-text">3.8. 如何使用HTML和CSS ？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-9-替换资源的技巧？"><span class="toc-number">3.9.</span> <span class="toc-text">3.9. 替换资源的技巧？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-10-如何把一个带Rigidbody的实体的惯性去掉？"><span class="toc-number">3.10.</span> <span class="toc-text">3.10. 如何把一个带Rigidbody的实体的惯性去掉？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-11-把transparent-canvas选择打开后，带来的坑"><span class="toc-number">3.11.</span> <span class="toc-text">3.11. 把transparent canvas选择打开后，带来的坑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-12-背景的处理？"><span class="toc-number">3.12.</span> <span class="toc-text">3.12. 背景的处理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-13-如何给字体加动效？"><span class="toc-number">3.13.</span> <span class="toc-text">3.13. 如何给字体加动效？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-14-粒子效果不正常？"><span class="toc-number">3.14.</span> <span class="toc-text">3.14. 粒子效果不正常？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-15-替换材质球？"><span class="toc-number">3.15.</span> <span class="toc-text">3.15. 替换材质球？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-16-替换模型？"><span class="toc-number">3.16.</span> <span class="toc-text">3.16. 替换模型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-17-改变材质球参数？"><span class="toc-number">3.17.</span> <span class="toc-text">3.17. 改变材质球参数？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-18-改变带rigidbody的实体角度或者位置？"><span class="toc-number">3.18.</span> <span class="toc-text">3.18. 改变带rigidbody的实体角度或者位置？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-19-Teleport父元素，子元素rigidbody失效？"><span class="toc-number">3.19.</span> <span class="toc-text">3.19. Teleport父元素，子元素rigidbody失效？</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<p>#PlayCanvas技术文档（持续更新）<br>@(PlayCanvas Note)[HTML5, canvas]</p>
+<h1 id="1-快速入门"><a href="#1-快速入门" class="headerlink" title="1. 快速入门"></a><strong>1. 快速入门</strong></h1><ul>
+<li>强烈建议先看快速入门视频，再去看官方的Manual !<h2 id="1-1-YouTube上PlayCanvas的快速入门视频"><a href="#1-1-YouTube上PlayCanvas的快速入门视频" class="headerlink" title="1.1. YouTube上PlayCanvas的快速入门视频"></a><strong>1.1. YouTube上PlayCanvas的快速入门视频</strong></h2></li>
+<li><a href="https://www.youtube.com/watch?v=3l5uV2RjFXo" target="_blank" rel="external">Getting Started with PlayCanvas - YouTube</a></li>
+<li><a href="https://www.youtube.com/watch?v=fXc-JjH2nNo" target="_blank" rel="external">PlayCanvas Tutorial 1 - Getting started with PlayCanvas - YouTube</a><br>这系列视频是<strong>歪果仁</strong>录制的，对于英语听力差的小伙伴会有点小压力</li>
+<li>待补充…<h2 id="1-2-PlayCanvas官方的Manual"><a href="#1-2-PlayCanvas官方的Manual" class="headerlink" title="1.2. PlayCanvas官方的Manual"></a><strong>1.2. PlayCanvas官方的<a href="http://developer.playcanvas.com/en/" target="_blank" rel="external">Manual</a></strong></h2></li>
+<li>PlayCanvas Manual包括：</li>
+<li><a href="http://developer.playcanvas.com/en/user-manual" target="_blank" rel="external">User Manual</a></li>
+<li><a href="http://developer.playcanvas.com/en/tutorials" target="_blank" rel="external">Tutorials</a></li>
+<li><a href="http://developer.playcanvas.com/en/tutorials/video" target="_blank" rel="external">Video</a></li>
+<li><a href="http://developer.playcanvas.com/api/" target="_blank" rel="external">API Reference</a></li>
+<li>官方建议直接先看<a href="http://developer.playcanvas.com/en/user-manual" target="_blank" rel="external">User Manual</a>，不过个人认为先去<a href="http://developer.playcanvas.com/en/tutorials/video" target="_blank" rel="external">Video</a>看看。它的视频都放在<a href="https://www.youtube.com/user/playcanvas" target="_blank" rel="external">YouTube</a>，没有翻墙的小伙伴就不好意思了。在<a href="https://www.youtube.com/user/playcanvas" target="_blank" rel="external">YouTube</a>，有各种PlayCanvas的介绍视频，也包括上面两个系列的快速入门视频。先不说收获，你会被那非常炫的开发方式感动的。</li>
+<li>视频看完后，强烈建议把<a href="http://developer.playcanvas.com/en/user-manual" target="_blank" rel="external">User Manual</a>过一遍，再把<a href="http://developer.playcanvas.com/en/tutorials" target="_blank" rel="external">Tutorials</a>过一遍。而且以后，也会经常访问这三者：<a href="http://developer.playcanvas.com/en/user-manual" target="_blank" rel="external">User Manual</a>、<a href="http://developer.playcanvas.com/en/tutorials" target="_blank" rel="external">Tutorials</a>、<a href="http://developer.playcanvas.com/api/" target="_blank" rel="external">API Reference</a>。其中，<a href="http://developer.playcanvas.com/en/tutorials" target="_blank" rel="external">Tutorials</a>中有一个Keepy Up游戏的简单教程，值得反复推敲。<h2 id="1-3-PlayCanvas的论坛Forum"><a href="#1-3-PlayCanvas的论坛Forum" class="headerlink" title="1.3. PlayCanvas的论坛Forum"></a><strong>1.3. PlayCanvas的论坛<a href="http://forum.playcanvas.com/" target="_blank" rel="external">Forum</a></strong></h2></li>
+<li>有什么问题，都可以在这个<a href="http://forum.playcanvas.com/" target="_blank" rel="external">Forum</a>上发布问题（Of course, in English），一不小心，PlayCanvas的CTO就回复你了。帅吧！所以，有问题尽管去问吧!</li>
+</ul>
+<h1 id="2-优化"><a href="#2-优化" class="headerlink" title="2. 优化"></a><strong>2. 优化</strong></h1><ul>
+<li>你的PlayCanvas Apps通常会运行在各种各样的设备上，从 高性能的PC端 到 低性能的智能手机端。为了能够保证在各类设备上，都让你的Apps有最佳的表现，这里提供一些优化的指导。同时，PlayCanvas也提供了工具去帮助你找到并消除这些性能的瓶颈。<h2 id="2-1-最优化指导"><a href="#2-1-最优化指导" class="headerlink" title="2.1. 最优化指导"></a><strong>2.1. 最优化指导</strong></h2><h3 id="2-1-1-JavaScript"><a href="#2-1-1-JavaScript" class="headerlink" title="2.1.1. JavaScript"></a><strong>2.1.1. JavaScript</strong></h3></li>
+<li>用<code>new</code>去实例化一个JavaScript对象（尤其是vectors, matrices 和 quaternions）是一种动态分配，这个代价比较高。因此，应该尽可能地预先在script的<code>initialize</code>函数实例化，并在<code>update</code>函数中重用它们。这样，也可以让JS的垃圾回收机制省点心。<h3 id="2-1-2-Graphics"><a href="#2-1-2-Graphics" class="headerlink" title="2.1.2. Graphics"></a><strong>2.1.2. Graphics</strong></h3></li>
+<li>As the value for texture anisotropy increases, visual improve but performance decreases. Be careful to balance visuals against performance.</li>
+<li>Look for opportunities to pack multiple textures into single images. For example, a greyscale opacity map can be stored in the alpha channel of a diffuse map. Or a greyscale gloss map can be stored in the alpha channel of a specular map. This results in lower VRAM usage.（应该是尽可能用合图的意思）</li>
+<li>每个场景中<strong>动态灯光</strong>的数量一定要心中有数，尽可能让它们的数量减少到最低。</li>
+<li>从始至终都不会动的模型，给它的static属性打上勾吧。</li>
+<li>打开<strong>动态灯光的阴影投射</strong>是很耗性能的，尤其是点光的阴影投射。 For each point light that casts shadow, the scene must be rendered 6 times into a shadow map.</li>
+<li>在 PlayCanvas中，<strong>一个多边形实体就会调用一个<code>draw</code>方法 (a command to draw an individual graphical primitive)。每一次调用<code>draw</code>方法，都需要分配CPU资源给WebGL</strong>。因此，可取之法是保证<code>draw</code>方法调用的次数尽可能低，尤其是在智能手机等移动设备上。你会看到一堆的<code>draw</code>方法在你为一个特殊的模型添加材质并在检查窗（Inspector）观察它的时候而被调用多次。 100-200个<code>draw</code>方法在低端的移动设备被调用是个非常难实现的目标。在某种情况下，高端的桌面设备每一帧的<code>draw</code>方法调用次数甚至可以达到数以千计，同时保持60的FPS。</li>
+<li>为你的Project打开 <strong><code>Use Device Pixel Ratio</code>（使用设备的像素比）</strong> 的时候应该注意。打开这个会让你的PlayCanvas app使用设备的分辨率，但是这会导致更多的像素点被填充，这将明显降低游戏的帧率。</li>
+<li>在一个场景中，<strong>尽量把<em>混合多边形实体</em>（<code>blended mesh instances</code>）数量降到最低</strong>。Blended meshes are deferred until all opaque mesh instances have been dispatched and are then submitted in back to front camera depth order. This results in pixels being filled multiple times and can result in a lot of render state changes since blended meshes cannot be sorted by material.</li>
+<li>Try to keep the number of <strong>着色器(<code>shaders</code>)</strong> generated by your app as low as possible. Shaders have to be compiled and linked on demand and this operation is expensive, causing delay in app startup and glitches in framerate. If material A has an emissive map but material B doesn’t, two shaders will be generated. If you set a black emissive map on material B, the materials can share the same shader. Reducing the number of materials in your scene should also reduce the number of generated shaders.</li>
+<li><strong><code>Post effects</code></strong> can be expensive so think carefully before you enable them. They can cost a lot in terms of pixel fill.</li>
+<li>Only enable 截头锥体(<code>frustum culling</code>) on a camera component if, on balance, it is likely to save more performance than it costs to calculate visiblity. 如果被渲染的场景中，所有的多边形实体(mesh instances)都可是看得见的，那一定要把这个勾去掉。（说白了就是看得见的那些会被渲染，但是还要经过计算才能知道哪些是看得见的，所以如果所有的多边形实体都可以看见，就没有必要把这个打开了。）</li>
+<li>Enabling backface culling on a material will be cheaper than disabling it. Generally speaking, backface culling reduces the number of pixels that the GPU has to fill. This is the default setting for newly created materials.<h3 id="2-1-3-Physics"><a href="#2-1-3-Physics" class="headerlink" title="2.1.3. Physics"></a><strong>2.1.3. Physics</strong></h3></li>
+<li>碰撞多边形网格（Collision meshes）不用像被渲染的那个模型那么精细，推荐用尽可能低<em>分辨率</em>的多边形网格作为碰撞检测的判断，甚至可以直接用Box。</li>
+<li>在一个场景中，使动态刚体（rigid body）的数量尽可能地保持最少，特别是在手机上。<h2 id="2-2-性能分析器"><a href="#2-2-性能分析器" class="headerlink" title="2.2. 性能分析器"></a><strong>2.2. 性能分析器</strong></h2></li>
+<li><a href="http://developer.playcanvas.com/en/user-manual/optimization/profiler/" target="_blank" rel="external">PlayCanvas Profiler</a><h2 id="2-3-性能最佳实践"><a href="#2-3-性能最佳实践" class="headerlink" title="2.3. 性能最佳实践"></a><strong>2.3. 性能最佳实践</strong></h2></li>
+<li>能不用3D建模就不用3D建模，用贴图模拟3D模型，所谓裸眼3D的效果。</li>
+<li>建模要尽可能简单，<strong>不能有太多<code>Mesh Instances</code>，<code>Mesh Instance</code>最好只有一个</strong>。用PlayCanvas的<code>Profiler</code>查看时，<code>Mesh Instances</code>尽可能不超过50，<code>Draw Calls</code>尽可能不起过50 。一个比较复杂的模型，只有一个<code>Mesh Instance</code>，如图：</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/mesh_instance_one.png" alt="mesh_instance_one"></li>
+<li>不要使用动态打光，如果要用，尽可能少，<strong>强烈建议关闭灯光的阴影效果</strong>，用半透明贴图来代替。如图：</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/pseudo_shadow.png" alt="pseudo_shadow"></li>
+<li>有些地方可以用<code>LightMap</code>，即<a href="http://developer.playcanvas.com/en/user-manual/graphics/lighting/lightmaps/" target="_blank" rel="external">光照贴图</a>。</li>
+<li>重复利用的对象应该使用对象池，可以用数组来作为最直接的对象池。这样可以避免新建对象时内存的分配和销毁对象时内存的回收，让垃圾回收机制省点心。所谓对象池：对象池就存放需要被反复调用资源的一个空间，比如游戏中要常被大量复制的对象，子弹，敌人，以及任何重复出现的对象。</li>
+<li>地面可以是一个大的<code>Plane</code>，在<code>Diffuse</code>上贴图，在<code>Offet&amp;Tiling</code>中调节，可以达到瓦片地图的效果。如下图：</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/Offset_Tiling_Diffuse.png" alt="Offset_Tiling_Diffuse"></li>
+<li>抗锯齿功能：<code>USE DEVICE PIXEL RATIO</code>，如果把它勾上，它的值是<code>window.devicePixelRatio</code>，如果不选，它的值是1. 苹果的<code>window.devicePixelRatio</code>的值是2，即我们平时说的两倍屏。为了好的体验，可以强制苹果使用<code>devicePixelRatio</code>，而安卓机提供开关让其是否用设备的屏幕比例。在苹果上不可以用这个动态开关，否则当从勾选到勾选的时候，会导致只显示1/4屏幕的问题。<a href="https://github.com/playcanvas/engine/issues/515" target="_blank" rel="external">这是PlayCanvas的Bug。</a></li>
+</ul>
+<h1 id="3-Q-amp-A"><a href="#3-Q-amp-A" class="headerlink" title="3. Q&amp;A"></a><strong>3. Q&amp;A</strong></h1><ul>
+<li>这是开发时遇到过的一些问题和解决方法。<h2 id="3-1-PlayCanvas里面的1Size在3DS-Max里面是多少米？"><a href="#3-1-PlayCanvas里面的1Size在3DS-Max里面是多少米？" class="headerlink" title="3.1. PlayCanvas里面的1Size在3DS Max里面是多少米？"></a><strong>3.1. PlayCanvas里面的1Size在3DS Max里面是多少米？</strong></h2></li>
+<li>在PlayCanvas中，想要把一个物体进行位移，只要<code>this.entity.translate(1, 0, 0);</code>就可以在X轴上平移1了。可是问题在于，这个1代表多少米呢？事实上，这个1代表是 1 size或者 1 unit，那 1 unit 又在哪里设置呢？ </li>
+<li>请参考：<a href="http://forum.playcanvas.com/t/1-size-equals-how-many-centimeters/2351" target="_blank" rel="external">1 size equals how many centimeters?</a></li>
+<li>此坑后来官方也填了，见：<a href="http://developer.playcanvas.com/en/user-manual/assets/models/units" target="_blank" rel="external">PlayCanvas Units</a><h2 id="3-2-如何实现碰撞检测？"><a href="#3-2-如何实现碰撞检测？" class="headerlink" title="3.2. 如何实现碰撞检测？"></a><strong>3.2. 如何实现碰撞检测？</strong></h2></li>
+<li>先看看官方文档中关于碰撞检测的资料：<a href="http://developer.playcanvas.com/en/user-manual/packs/components/collision/" target="_blank" rel="external">Collision</a>。这里有比较关键的一段话：</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/Collision_detect.png" alt="Collision_detect"></li>
+<li>如何实现，请看：<a href="http://developer.playcanvas.com/en/tutorials/intermediate/collision-and-triggers/" target="_blank" rel="external">collision-and-triggers</a>。这里要注意的地方是：</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/Collision_and_trigger.png" alt="Collision_and_trigger"></li>
+<li>可以看看这个表：<a href="http://developer.playcanvas.com/en/api/pc.CollisionComponent.html" target="_blank" rel="external">CollisionComponent</a><h2 id="3-3-如何在游戏中使用贴图和特殊字体？"><a href="#3-3-如何在游戏中使用贴图和特殊字体？" class="headerlink" title="3.3. 如何在游戏中使用贴图和特殊字体？"></a><strong>3.3. 如何在游戏中使用贴图和特殊字体？</strong></h2></li>
+<li>在<a href="http://developer.playcanvas.com/en/" target="_blank" rel="external">PlayCanvas Document</a>的首页中间，有一个<strong>Engine Users</strong>。有<a href="https://github.com/playcanvas/sprites" target="_blank" rel="external">2D Images</a>和<a href="https://github.com/playcanvas/fonts" target="_blank" rel="external">text</a>，一个是贴图，一个是字体。如果需要用到贴图或者特殊字体，就要把<code>sprite.js</code>或者<code>font.js</code>上传到PlayCanvas的Project中。</li>
+<li><strong>字体：</strong></li>
+<li>其中sprite比较好处理，特殊字体比较难处理一点（暂时是这样）。因为PlayCanvas要一个由特殊字体组成的PNG和一个JSON文件。这里推荐一个在线编辑字体的网站：<a href="http://kvazars.com/littera/" target="_blank" rel="external">littera</a>，但是这个网站导出字体的时候，只能导出PNG和fnt。<strong>注意：用<a href="http://kvazars.com/littera/" target="_blank" rel="external">littera</a>导出字体的时候，选择Text(.fnt)。</strong></li>
+<li>因此，我们要把fnt格式转为json格式，就要用到这里面<a href="https://github.com/playcanvas/fonts" target="_blank" rel="external">text</a>提供的教程：</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/fnt_to_json.png" alt="fnt_to_json"></li>
+<li>转化成json格式之后，还没完！<strong>这个json文件还有个错误：需要给某个key加上双引号。</strong>具体是哪个key，把文件拖到sublime里面一看就知道了（前提是sublime装了JSON Prettify插件）。</li>
+<li>的确很烦，如果各位撸友有什么更方便的方法，分享一下呗。官方提供的两个编辑字体的软件，一个是太旧了（也只有window版的），另一个要收费。所以我选择的是<a href="http://kvazars.com/littera/" target="_blank" rel="external">littera</a>。额…这里没有打广告。效果如图：</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/font_example.png" alt="font_example.png"></li>
+<li><strong>贴图：</strong></li>
+<li>贴图的话就简单多了，如图：</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/sprite_panel.png" alt="sprite_panel.png"></li>
+<li>把图片拖进去，调整位置即可。效果是这样的：</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/sprite_and_font_example.png" alt="sprite_and_font_example"></li>
+<li>可以看到，上面的按钮是可以被点击的，我们要做点击反馈，如点下去的时候缩小等等。因此，这里不推荐直接使用<code>sprite.js</code>提供的点击事件。每次点击，判断点击的位置和目标按钮的位置即可。代码如图：</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/sprite_touch_event.png" alt="sprite_touch_event"><h2 id="3-4-游戏在安卓版微信上声音无法播放？"><a href="#3-4-游戏在安卓版微信上声音无法播放？" class="headerlink" title="3.4. 游戏在安卓版微信上声音无法播放？"></a><strong>3.4. 游戏在安卓版微信上声音无法播放？</strong></h2></li>
+<li>Entity的<code>Sound</code>中，有一个<code>Positional</code>的选项，把勾勾去掉即可。详情请看下面链接：</li>
+<li><a href="http://forum.playcanvas.com/t/sound-dont-play-on-some-broswer/2419/" target="_blank" rel="external">Sound not play on WhChat(Android)</a><h2 id="3-5-我的代码能同步到Github上吗？"><a href="#3-5-我的代码能同步到Github上吗？" class="headerlink" title="3.5. 我的代码能同步到Github上吗？"></a><strong>3.5. 我的代码能同步到Github上吗？</strong></h2></li>
+<li>现在PlayCanvas用的是<code>Script2.0</code>，不可以同步到<code>Github</code>了。</li>
+<li>详情：<a href="http://forum.playcanvas.com/t/where-is-code-tab-in-dashboard/2428/3" target="_blank" rel="external">Where’s the code tab in dashboard ?</a><h2 id="3-6-如何把游戏部署到我们自己服务器？"><a href="#3-6-如何把游戏部署到我们自己服务器？" class="headerlink" title="3.6. 如何把游戏部署到我们自己服务器？"></a><strong>3.6. 如何把游戏部署到我们自己服务器？</strong></h2></li>
+<li>首先你得是个<strong><a href="https://playcanvas.com/plans" target="_blank" rel="external">Personal Plan</a></strong>以上的高级帐户，才有<strong>Web Download</strong>的权限。</li>
+<li>有这个权限后，其实很简单，只要在发布那里点击`<strong>Web Download</strong>即可。下载下来是一个zip文件，解压后push到服务器，Done !</li>
+<li>但是有个问题，服务器的带宽是有限的，因此我们要把资源放到CDN上，只留<code>index.html</code>在服务器上就好了。这样又导致<strong>WebGL的一个跨域资源</strong>的问题，下面链接是解决方案，也会提及把资源和<code>index.html</code>分离后，需要在<code>index.html</code>里面个性什么。</li>
+<li>详情：<a href="http://forum.playcanvas.com/t/cross-origin-error-when-self-hosting/2480" target="_blank" rel="external">Cross origin error when self hosting</a>。</li>
+<li>这里有个很牛逼的提示：下载的时候是可以选择是否混淆代码的。如图：</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/download_concatenate_scriptes.png" alt="download_contatenate_scripts"><h2 id="3-7-如何自定义loading界面？"><a href="#3-7-如何自定义loading界面？" class="headerlink" title="3.7. 如何自定义loading界面？"></a><strong>3.7. 如何自定义loading界面？</strong></h2></li>
+<li>首先你得是个<strong><a href="https://playcanvas.com/plans" target="_blank" rel="external">Organization Plan</a></strong>高级帐户，才可以修改loading界面。</li>
+<li>这是官方的教程：<a href="http://developer.playcanvas.com/en/user-manual/designer/loading-screen/" target="_blank" rel="external">Loading Screen</a>。</li>
+<li>这里有个坑，就是当Fork一个Project的时候，Fork出来的那个项目的loadingScreen的脚本会自动取消关联。所以在<code>Editor</code>的设置的<code>LoadingScreen</code>中，要重新选择一下<code>LoadingScreen</code>的脚本。<h2 id="3-8-如何使用HTML和CSS-？"><a href="#3-8-如何使用HTML和CSS-？" class="headerlink" title="3.8. 如何使用HTML和CSS ？"></a><strong>3.8. 如何使用HTML和CSS ？</strong></h2></li>
+<li>直接上官方教程：<a href="http://developer.playcanvas.com/en/user-manual/assets/html/" target="_blank" rel="external">html</a>、<a href="http://developer.playcanvas.com/en/user-manual/assets/css/" target="_blank" rel="external">css</a>。</li>
+<li>很简单，看了就懂了。<h2 id="3-9-替换资源的技巧？"><a href="#3-9-替换资源的技巧？" class="headerlink" title="3.9. 替换资源的技巧？"></a><strong>3.9. 替换资源的技巧？</strong></h2></li>
+<li>PlayCanvas上传资源很方便，直接拖到资源面板就行了。</li>
+<li>有时候，美术可能会让你换一下贴图啊字体啊这类的。但是这个时候，你的贴图可能已经应该在几个<code>sprite.js</code>上了，这样改起来就不方便了。</li>
+<li>于是，上传资源的时候，把资源的名字改成被替换的资源的名字就可以了，PlayCanvas会自动更新。<h2 id="3-10-如何把一个带Rigidbody的实体的惯性去掉？"><a href="#3-10-如何把一个带Rigidbody的实体的惯性去掉？" class="headerlink" title="3.10. 如何把一个带Rigidbody的实体的惯性去掉？"></a><strong>3.10. 如何把一个带Rigidbody的实体的惯性去掉？</strong></h2></li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/linear_and_angular_velocity.png" alt="linear_and_angular_velocity"><h2 id="3-11-把transparent-canvas选择打开后，带来的坑"><a href="#3-11-把transparent-canvas选择打开后，带来的坑" class="headerlink" title="3.11. 把transparent canvas选择打开后，带来的坑"></a><strong>3.11. 把transparent canvas选择打开后，带来的坑</strong></h2></li>
+<li>首先说说<code>transparent canvas</code>的好处。打开之后，可以用<code>DOM</code>来做背景，非常方便和简单。</li>
+<li>但是，<code>transparent canvas</code>打开之后，当粒子后面（z轴）没有实体挡住它的时候，<code>canvas</code>的<code>transparent</code>会把粒子搞成白色。</li>
+<li>粒子变白的情况也可能发生在用<code>sprite.js</code>生成的贴图上。</li>
+<li>总的来说，<code>canvas</code>的透明通道可能和其他东西的透明通道有冲突吧。</li>
+<li>因此，是不能把<code>transparent canvas</code>打开的方法简单地做一个背景的。<h2 id="3-12-背景的处理？"><a href="#3-12-背景的处理？" class="headerlink" title="3.12. 背景的处理？"></a><strong>3.12. 背景的处理？</strong></h2></li>
+<li>游戏的背景用一个<code>Plane</code>实体来处理，把这个<code>Plane</code>作为<code>Camera</code>的一个子对象。然后把这个<code>Plane</code>的大小，角度等调到合适的值即可。如图：</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/background_camera.png" alt="background_camera"><h2 id="3-13-如何给字体加动效？"><a href="#3-13-如何给字体加动效？" class="headerlink" title="3.13. 如何给字体加动效？"></a><strong>3.13. 如何给字体加动效？</strong></h2></li>
+<li>PlayCanvas暂时还没有提交比较好的<code>Tween</code>控制脚本，所以现在所以的动效都要自己去实现。</li>
+<li>现在改变字体的大小只能用<code>font.js</code>中的<code>maxResHeight</code>这个属性。听PlayCanvas的技术人员说，<code>font.js2.0</code>已经在路上了。</li>
+<li>目前，我们的动画只能自己在<code>update</code>函数中写。代码如下，详细的代码在萌宠快跑的InGame.js中。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// update code called every frame</span></div><div class="line">InGame.prototype.update = <span class="function"><span class="keyword">function</span>(<span class="params">dt</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.addScoreTween();</div><div class="line">    <span class="keyword">this</span>.countDownTween();</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//放大缩小分数字样的动画</span></div><div class="line">InGame.prototype.addScoreTween = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.scoreAdded) &#123;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.becomeBigger) &#123;</div><div class="line">            <span class="keyword">this</span>.scoreEntity.script.fontRenderer.maxResHeight -= <span class="keyword">this</span>.scaleStep;</div><div class="line">            <span class="keyword">this</span>.scoreEntity.script.fontRenderer.y += <span class="keyword">this</span>.moveStep;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">this</span>.scoreEntity.script.fontRenderer.maxResHeight += <span class="keyword">this</span>.scaleStep;</div><div class="line">            <span class="keyword">this</span>.scoreEntity.script.fontRenderer.y -= <span class="keyword">this</span>.moveStep;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>.count ++;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.count === (<span class="keyword">this</span>.scaleTimes &gt;&gt; <span class="number">1</span>)) &#123;</div><div class="line">            <span class="keyword">this</span>.becomeBigger = <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.count === <span class="keyword">this</span>.scaleTimes) &#123;</div><div class="line">            <span class="keyword">this</span>.becomeBigger = <span class="literal">true</span>;</div><div class="line">            <span class="keyword">this</span>.count = <span class="number">0</span>;</div><div class="line">            <span class="keyword">this</span>.scoreAdded = <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-14-粒子效果不正常？"><a href="#3-14-粒子效果不正常？" class="headerlink" title="3.14. 粒子效果不正常？"></a><strong>3.14. 粒子效果不正常？</strong></h2><ul>
+<li>这个粒子我觉得嘛，挺多的问题。不是特别完美。</li>
+<li>上面也说了，<code>transparent canvas</code>会导致粒子变白，说白了也是透明通道。</li>
+<li>所以，感觉这个粒子和有透明通道东西有会有冲突。</li>
+<li>萌宠快跑的路块，本来是有<code>alpha</code>透明通道，于是导致了粒子有时候不显示，坑得一匹。</li>
+<li>Forum详情：<a href="http://forum.playcanvas.com/t/particle-not-play-again-sometimes/2588/6" target="_blank" rel="external">http://forum.playcanvas.com/t/particle-not-play-again-sometimes/2588/6</a></li>
+<li>Github Issue: <a href="https://github.com/playcanvas/engine/issues/759" target="_blank" rel="external">https://github.com/playcanvas/engine/issues/759</a><h2 id="3-15-替换材质球？"><a href="#3-15-替换材质球？" class="headerlink" title="3.15. 替换材质球？"></a><strong>3.15. 替换材质球？</strong></h2></li>
+<li>有时候我们要给实体换套皮肤什么的，这个时候就要换材质球了。</li>
+<li>那我们知道，每个实体都可以有很多<code>Component</code>，材质球是在<code>Model</code>这个<code>Component</code>上。可以通过以下代码找到: <code>this.entity.model.meshInstances</code>，这是一个数组，存的都是材质球。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> material = <span class="keyword">this</span>.app.assets.findByTag(<span class="string">'CatMaterial'</span>)[<span class="number">0</span>];</div><div class="line"><span class="keyword">this</span>.entity.model.meshInstances[<span class="number">0</span>] = material;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-16-替换模型？"><a href="#3-16-替换模型？" class="headerlink" title="3.16. 替换模型？"></a><strong>3.16. 替换模型？</strong></h2><ul>
+<li>闲话休提，直接上代码。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> model = <span class="keyword">this</span>.app.assets.findByTag(<span class="string">'CatModel'</span>)[<span class="number">0</span>];</div><div class="line"><span class="keyword">this</span>.entity.model.asset = model;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-17-改变材质球参数？"><a href="#3-17-改变材质球参数？" class="headerlink" title="3.17. 改变材质球参数？"></a><strong>3.17. 改变材质球参数？</strong></h2><ul>
+<li><p>首先找到这个实体的材质球。有个坑的地方，不能够用一个变量来指向这个材质球。演示个错识误的做法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> material = <span class="keyword">this</span>.entity.model.meshInstances[<span class="number">0</span>].material;</div><div class="line">material.opacity = <span class="number">0.5</span>;</div><div class="line">material.update();</div></pre></td></tr></table></figure>
+</li>
+<li><p>上面的代码这样是没有效的，这个时候<code>material</code>并没有指向材质球，而是复制了一份。所以正确的做法是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.entity.model.meshInstances[<span class="number">0</span>].material.opacity = <span class="number">0.5</span>;</div><div class="line"><span class="keyword">this</span>.entity.model.meshInstances[<span class="number">0</span>].material.update();</div></pre></td></tr></table></figure>
+</li>
+<li><p>这里有个关于性能的问题得提一下，就是使用<code>this.entity.model.meshInstances[0].material.update();</code>的时候要注意：</p>
+</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/PlayCanvas/update_material_expensive.png" alt="update_material_expensive"></li>
+<li><p>所以这里有些非官方的做法，这个就不用update了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.entity.model.meshInstances[<span class="number">0</span>].setParameter(<span class="string">'material_opacity'</span>, <span class="number">1</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>关于这个<code>material_opacity</code>是怎么来的，可以看这个：<a href="http://forum.playcanvas.com/t/i-have-some-problem-when-i-change-the-material/2412/5" target="_blank" rel="external">http://forum.playcanvas.com/t/i-have-some-problem-when-i-change-the-material/2412/5</a></p>
+<h2 id="3-18-改变带rigidbody的实体角度或者位置？"><a href="#3-18-改变带rigidbody的实体角度或者位置？" class="headerlink" title="3.18. 改变带rigidbody的实体角度或者位置？"></a><strong>3.18. 改变带rigidbody的实体角度或者位置？</strong></h2></li>
+<li>当我们设置一个实体的位置、角度时，我们很自然地想到用<code>setPosition</code>、<code>setEulerAngles</code>。</li>
+<li>很不幸的是，如果用这两个方法给带有<code>rigidbody</code>的实体设置是无效的。</li>
+<li>带有<code>rigidbody</code>的实体，去改变他的位置只能用<code>teleport</code>。详情：<a href="http://developer.playcanvas.com/en/api/pc.RigidBodyComponent.html#teleport" target="_blank" rel="external">http://developer.playcanvas.com/en/api/pc.RigidBodyComponent.html#teleport</a></li>
+<li>那角度呢？还是用teleport，暂时还没有能单独设置带rigidbody的实体的角度的方法。但是，已经在路上了。详情：<a href="https://github.com/playcanvas/engine/issues/782" target="_blank" rel="external">https://github.com/playcanvas/engine/issues/782</a><h2 id="3-19-Teleport父元素，子元素rigidbody失效？"><a href="#3-19-Teleport父元素，子元素rigidbody失效？" class="headerlink" title="3.19. Teleport父元素，子元素rigidbody失效？"></a><strong>3.19. Teleport父元素，子元素rigidbody失效？</strong></h2></li>
+<li>其实并不是失效。</li>
+<li>情况是这样的：<a href="http://forum.playcanvas.com/t/childrens-rigidbody-invalid-when-teleport-parents-rigidbody/2876" target="_blank" rel="external">Children’s Rigidbody Invalid when Teleport Parent’s Rigidbody </a></li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Technology/">Technology</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/PlayCanvas/">PlayCanvas</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/09/05/PlayCanvas技术文档/" data-title="PlayCanvas技术文档 | WingUNO" data-tsina="2242447003" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/07/24/爱心鱼小游戏/"  title="爱心鱼小游戏">
+ <strong>下一篇：</strong><br/> 
+ <span>爱心鱼小游戏
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/09/05/PlayCanvas技术文档/" data-title="PlayCanvas技术文档" data-url="http://yoursite.com/2016/09/05/PlayCanvas技术文档/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-快速入门"><span class="toc-number">1.</span> <span class="toc-text">1. 快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-YouTube上PlayCanvas的快速入门视频"><span class="toc-number">1.1.</span> <span class="toc-text">1.1. YouTube上PlayCanvas的快速入门视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-PlayCanvas官方的Manual"><span class="toc-number">1.2.</span> <span class="toc-text">1.2. PlayCanvas官方的Manual</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-PlayCanvas的论坛Forum"><span class="toc-number">1.3.</span> <span class="toc-text">1.3. PlayCanvas的论坛Forum</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-优化"><span class="toc-number">2.</span> <span class="toc-text">2. 优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-最优化指导"><span class="toc-number">2.1.</span> <span class="toc-text">2.1. 最优化指导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-JavaScript"><span class="toc-number">2.1.1.</span> <span class="toc-text">2.1.1. JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-Graphics"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.1.2. Graphics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-Physics"><span class="toc-number">2.1.3.</span> <span class="toc-text">2.1.3. Physics</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-性能分析器"><span class="toc-number">2.2.</span> <span class="toc-text">2.2. 性能分析器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-性能最佳实践"><span class="toc-number">2.3.</span> <span class="toc-text">2.3. 性能最佳实践</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Q-amp-A"><span class="toc-number">3.</span> <span class="toc-text">3. Q&A</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-PlayCanvas里面的1Size在3DS-Max里面是多少米？"><span class="toc-number">3.1.</span> <span class="toc-text">3.1. PlayCanvas里面的1Size在3DS Max里面是多少米？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-如何实现碰撞检测？"><span class="toc-number">3.2.</span> <span class="toc-text">3.2. 如何实现碰撞检测？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-如何在游戏中使用贴图和特殊字体？"><span class="toc-number">3.3.</span> <span class="toc-text">3.3. 如何在游戏中使用贴图和特殊字体？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-游戏在安卓版微信上声音无法播放？"><span class="toc-number">3.4.</span> <span class="toc-text">3.4. 游戏在安卓版微信上声音无法播放？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-我的代码能同步到Github上吗？"><span class="toc-number">3.5.</span> <span class="toc-text">3.5. 我的代码能同步到Github上吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-如何把游戏部署到我们自己服务器？"><span class="toc-number">3.6.</span> <span class="toc-text">3.6. 如何把游戏部署到我们自己服务器？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-如何自定义loading界面？"><span class="toc-number">3.7.</span> <span class="toc-text">3.7. 如何自定义loading界面？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-8-如何使用HTML和CSS-？"><span class="toc-number">3.8.</span> <span class="toc-text">3.8. 如何使用HTML和CSS ？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-9-替换资源的技巧？"><span class="toc-number">3.9.</span> <span class="toc-text">3.9. 替换资源的技巧？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-10-如何把一个带Rigidbody的实体的惯性去掉？"><span class="toc-number">3.10.</span> <span class="toc-text">3.10. 如何把一个带Rigidbody的实体的惯性去掉？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-11-把transparent-canvas选择打开后，带来的坑"><span class="toc-number">3.11.</span> <span class="toc-text">3.11. 把transparent canvas选择打开后，带来的坑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-12-背景的处理？"><span class="toc-number">3.12.</span> <span class="toc-text">3.12. 背景的处理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-13-如何给字体加动效？"><span class="toc-number">3.13.</span> <span class="toc-text">3.13. 如何给字体加动效？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-14-粒子效果不正常？"><span class="toc-number">3.14.</span> <span class="toc-text">3.14. 粒子效果不正常？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-15-替换材质球？"><span class="toc-number">3.15.</span> <span class="toc-text">3.15. 替换材质球？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-16-替换模型？"><span class="toc-number">3.16.</span> <span class="toc-text">3.16. 替换模型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-17-改变材质球参数？"><span class="toc-number">3.17.</span> <span class="toc-text">3.17. 改变材质球参数？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-18-改变带rigidbody的实体角度或者位置？"><span class="toc-number">3.18.</span> <span class="toc-text">3.18. 改变带rigidbody的实体角度或者位置？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-19-Teleport父元素，子元素rigidbody失效？"><span class="toc-number">3.19.</span> <span class="toc-text">3.19. Teleport父元素，子元素rigidbody失效？</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="WingMrL" data-width="100%" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Technology/" title="Technology">Technology<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/ife/" title="ife">ife<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/面试/" title="面试">面试<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/排序/" title="排序">排序<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GitHub/" title="GitHub">GitHub<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C语言/" title="C语言">C语言<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PlayCanvas/" title="PlayCanvas">PlayCanvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ife/" title="ife">ife<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/浮动/" title="浮动">浮动<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://segmentfault.com/a/1190000002804472" target="_blank" title="github上值得关注的前端项目">Github前端项目</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://codingpoorcat.github.io/" target="_blank" title="Cat&#39;s Blog">Cat&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://xiguabanhua.github.io/" target="_blank" title="XiGua&#39;s Blog">XiGua&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m WingUNO. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2242447003" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/WingMrL" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/winguno" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:15622746317@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="winguno">winguno</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"winguno"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

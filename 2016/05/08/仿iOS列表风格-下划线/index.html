@@ -1,0 +1,588 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>仿iOS列表风格(下划线) | WingUNO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="winguno">
+    
+
+    
+    <meta name="description" content="仿iOS列表风格（下划线）@(博客)[CSS]
+
+
+从图中我们可以看到这个列表中每个子项都有一根底边线，并且除了最后一根边线是全封闭的外，其余的边线都是非封闭型，距左侧有一定的空白间隙；需要注意的是，当某个子项被选中或激活时，其反馈区域是整行，未封闭区域的背景色也需要改变
+
+方法一：伪元素HTML如下：12345678910&amp;lt;div class=&quot;container&quot;&amp;gt;    &amp;lt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="仿iOS列表风格(下划线)">
+<meta property="og:url" content="http://yoursite.com/2016/05/08/仿iOS列表风格-下划线/index.html">
+<meta property="og:site_name" content="WingUNO">
+<meta property="og:description" content="仿iOS列表风格（下划线）@(博客)[CSS]
+
+
+从图中我们可以看到这个列表中每个子项都有一根底边线，并且除了最后一根边线是全封闭的外，其余的边线都是非封闭型，距左侧有一定的空白间隙；需要注意的是，当某个子项被选中或激活时，其反馈区域是整行，未封闭区域的背景色也需要改变
+
+方法一：伪元素HTML如下：12345678910&amp;lt;div class=&quot;container&quot;&amp;gt;    &amp;lt;">
+<meta property="og:image" content="http://demo.doyoe.com/css3/background/skin/divider.png">
+<meta property="og:updated_time" content="2016-05-08T14:19:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="仿iOS列表风格(下划线)">
+<meta name="twitter:description" content="仿iOS列表风格（下划线）@(博客)[CSS]
+
+
+从图中我们可以看到这个列表中每个子项都有一根底边线，并且除了最后一根边线是全封闭的外，其余的边线都是非封闭型，距左侧有一定的空白间隙；需要注意的是，当某个子项被选中或激活时，其反馈区域是整行，未封闭区域的背景色也需要改变
+
+方法一：伪元素HTML如下：12345678910&amp;lt;div class=&quot;container&quot;&amp;gt;    &amp;lt;">
+<meta name="twitter:image" content="http://demo.doyoe.com/css3/background/skin/divider.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="WingUNO" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="WingUNO" title="WingUNO"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="WingUNO">WingUNO</a></h1>
+				<h2 class="blog-motto">In Simple Way.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/05/08/仿iOS列表风格-下划线/" title="仿iOS列表风格(下划线)" itemprop="url">仿iOS列表风格(下划线)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="winguno" target="_blank" itemprop="author">winguno</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-08T14:10:18.000Z" itemprop="datePublished"> Published 2016-05-08</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#仿iOS列表风格（下划线）"><span class="toc-number">1.</span> <span class="toc-text">仿iOS列表风格（下划线）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方法一：伪元素"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">方法一：伪元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法二：background"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">方法二：background</span></a></li></ol></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="仿iOS列表风格（下划线）"><a href="#仿iOS列表风格（下划线）" class="headerlink" title="仿iOS列表风格（下划线）"></a>仿iOS列表风格（下划线）</h1><p>@(博客)[CSS]</p>
+<p><img src="http://demo.doyoe.com/css3/background/skin/divider.png" alt="iOS风格列表"></p>
+<ul>
+<li>从图中我们可以看到这个列表中每个子项都有一根底边线，并且除了最后一根边线是全封闭的外，其余的边线都是非封闭型，距左侧有一定的空白间隙；需要注意的是，当某个子项被选中或激活时，其反馈区域是整行，未封闭区域的背景色也需要改变</li>
+</ul>
+<h4 id="方法一：伪元素"><a href="#方法一：伪元素" class="headerlink" title="方法一：伪元素"></a>方法一：伪元素</h4><p><strong>HTML如下：</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Lady gaga<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Mariah Carey<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Adele<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Avirl Lavigne<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Sarah Brightman<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Celin Dion<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>CSS如下：</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">  * &#123;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">list-style</span>: none;</div><div class="line">  <span class="attribute">font-family</span>: <span class="string">"微软雅黑"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#eee</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">  <span class="comment">/*width: 100px;*/</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.demo</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#fff</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*方法一*/</span></div><div class="line"><span class="selector-class">.demo</span> <span class="selector-tag">li</span> &#123;</div><div class="line">  <span class="attribute">line-height</span>: <span class="number">40px</span>;</div><div class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.demo</span> <span class="selector-tag">li</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</div><div class="line">  <span class="attribute">content</span>: <span class="string">""</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.demo</span> <span class="selector-tag">li</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:last-child)</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">  <span class="attribute">left</span>: <span class="number">15px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.demo</span> <span class="selector-tag">li</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#f9f9f9</span>;</div></pre></td></tr></table></figure></p>
+<p><strong>codepen：</strong></p>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="GZBaxM" data-default-tab="html,result" data-user="winguno" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/winguno/pen/GZBaxM/" target="_blank" rel="external">backgournd-pseudo</a> by Wing (<a href="http://codepen.io/winguno" target="_blank" rel="external">@winguno</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h4 id="方法二：background"><a href="#方法二：background" class="headerlink" title="方法二：background"></a>方法二：background</h4><p><strong>HTML如下：</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Lady gaga<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Mariah Carey<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Adele<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Avirl Lavigne<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Sarah Brightman<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Celin Dion<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>CSS如下：</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">* &#123;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">list-style</span>: none;</div><div class="line">  <span class="attribute">font-family</span>: <span class="string">"微软雅黑"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#eee</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">  <span class="comment">/*width: 100px;*/</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.demo</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#fff</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*方法二*/</span></div><div class="line"><span class="selector-class">.demo</span> <span class="selector-tag">li</span> &#123;</div><div class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</div><div class="line">  <span class="attribute">line-height</span>: <span class="number">40px</span>;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#fff</span> <span class="built_in">linear-gradient</span>(transparent 39px, #ccc 39px, #ccc) no-repeat;</div><div class="line">  <span class="comment">/*这里的linear-gradient当然要做浏览器兼容问题了~*/</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.demo</span> <span class="selector-tag">li</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:last-child)</span> &#123;</div><div class="line">  <span class="attribute">background-origin</span>: content-box;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.demo</span> <span class="selector-tag">li</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#f3f3f3</span>;</div><div class="line">  <span class="comment">/*注意：这里的background-color不能用background代替*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>codepen：</strong></p>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="zqedRq" data-default-tab="html,result" data-user="winguno" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/winguno/pen/zqedRq/" target="_blank" rel="external">background-linear-gradient</a> by Wing (<a href="http://codepen.io/winguno" target="_blank" rel="external">@winguno</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+
+<p><strong>详情参考：</strong><a href="http://blog.doyoe.com/2016/04/11/css/background%E7%B3%BB%E5%88%97%E4%B9%8B%E6%97%A0%E5%A4%84%E4%B8%8D%E5%9C%A8%E7%9A%84%E5%A6%99%E8%B6%A3/" target="_blank" rel="external">background系列之无处不在的妙趣</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Technology/">Technology</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CSS/">CSS</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/05/08/仿iOS列表风格-下划线/" data-title="仿iOS列表风格(下划线) | WingUNO" data-tsina="2242447003" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/07/12/JavaScript的继承/" title="JavaScript的继承">
+  <strong>上一篇：</strong><br/>
+  <span>
+  JavaScript的继承</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/04/19/清除浮动常用的几种方法/"  title="清除浮动常用的几种方法">
+ <strong>下一篇：</strong><br/> 
+ <span>清除浮动常用的几种方法
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/05/08/仿iOS列表风格-下划线/" data-title="仿iOS列表风格(下划线)" data-url="http://yoursite.com/2016/05/08/仿iOS列表风格-下划线/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#仿iOS列表风格（下划线）"><span class="toc-number">1.</span> <span class="toc-text">仿iOS列表风格（下划线）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方法一：伪元素"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">方法一：伪元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法二：background"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">方法二：background</span></a></li></ol></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="WingMrL" data-width="100%" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Technology/" title="Technology">Technology<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/ife/" title="ife">ife<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/面试/" title="面试">面试<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/排序/" title="排序">排序<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GitHub/" title="GitHub">GitHub<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C语言/" title="C语言">C语言<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PlayCanvas/" title="PlayCanvas">PlayCanvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ife/" title="ife">ife<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/浮动/" title="浮动">浮动<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://segmentfault.com/a/1190000002804472" target="_blank" title="github上值得关注的前端项目">Github前端项目</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://codingpoorcat.github.io/" target="_blank" title="Cat&#39;s Blog">Cat&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://xiguabanhua.github.io/" target="_blank" title="XiGua&#39;s Blog">XiGua&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m WingUNO. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2242447003" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/WingMrL" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/winguno" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:15622746317@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="winguno">winguno</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"winguno"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

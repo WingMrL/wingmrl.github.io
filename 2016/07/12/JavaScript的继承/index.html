@@ -1,0 +1,589 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>JavaScript的继承 | WingUNO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="winguno">
+    
+
+    
+    <meta name="description" content="JavaScript的继承最近在看由Ross Harmes 和 Dustin Diaz写的一本书：《Pro JavaScript Design Patterns》（JavaScript设计模式），一本比较老的书。当我看完继承的时候，对JavaScript的继承有了更深的理解。写这个Blog，就当是一个整理的过程吧！
+为什么需要继承一般来说，在设计类的时候，我们希望能减少重复性代码，并且尽量弱化对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript的继承">
+<meta property="og:url" content="http://yoursite.com/2016/07/12/JavaScript的继承/index.html">
+<meta property="og:site_name" content="WingUNO">
+<meta property="og:description" content="JavaScript的继承最近在看由Ross Harmes 和 Dustin Diaz写的一本书：《Pro JavaScript Design Patterns》（JavaScript设计模式），一本比较老的书。当我看完继承的时候，对JavaScript的继承有了更深的理解。写这个Blog，就当是一个整理的过程吧！
+为什么需要继承一般来说，在设计类的时候，我们希望能减少重复性代码，并且尽量弱化对象">
+<meta property="og:updated_time" content="2016-07-12T05:03:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript的继承">
+<meta name="twitter:description" content="JavaScript的继承最近在看由Ross Harmes 和 Dustin Diaz写的一本书：《Pro JavaScript Design Patterns》（JavaScript设计模式），一本比较老的书。当我看完继承的时候，对JavaScript的继承有了更深的理解。写这个Blog，就当是一个整理的过程吧！
+为什么需要继承一般来说，在设计类的时候，我们希望能减少重复性代码，并且尽量弱化对象">
+
+    
+    <link rel="alternative" href="/atom.xml" title="WingUNO" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="WingUNO" title="WingUNO"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="WingUNO">WingUNO</a></h1>
+				<h2 class="blog-motto">In Simple Way.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/07/12/JavaScript的继承/" title="JavaScript的继承" itemprop="url">JavaScript的继承</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="winguno" target="_blank" itemprop="author">winguno</a>
+		
+  <p class="article-time">
+    <time datetime="2016-07-12T04:54:03.000Z" itemprop="datePublished"> Published 2016-07-12</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript的继承"><span class="toc-number">1.</span> <span class="toc-text">JavaScript的继承</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么需要继承"><span class="toc-number">1.1.</span> <span class="toc-text">为什么需要继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类式继承"><span class="toc-number">1.2.</span> <span class="toc-text">类式继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#extend函数"><span class="toc-number">1.2.1.</span> <span class="toc-text">extend函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型式继承"><span class="toc-number">1.3.</span> <span class="toc-text">原型式继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对继承而来的成员的读和写的不对等性"><span class="toc-number">1.3.1.</span> <span class="toc-text">对继承而来的成员的读和写的不对等性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类式继承和原型式继承的对比"><span class="toc-number">1.4.</span> <span class="toc-text">类式继承和原型式继承的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#掺元类"><span class="toc-number">1.5.</span> <span class="toc-text">掺元类</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="JavaScript的继承"><a href="#JavaScript的继承" class="headerlink" title="JavaScript的继承"></a>JavaScript的继承</h1><p>最近在看由Ross Harmes 和 Dustin Diaz写的一本书：《Pro JavaScript Design Patterns》（JavaScript设计模式），一本比较老的书。当我看完继承的时候，对JavaScript的继承有了更深的理解。写这个Blog，就当是一个整理的过程吧！</p>
+<h2 id="为什么需要继承"><a href="#为什么需要继承" class="headerlink" title="为什么需要继承"></a>为什么需要继承</h2><p>一般来说，在设计类的时候，我们希望能减少重复性代码，并且尽量弱化对象之间的耦合。使用继承，就符合了前一个设计原则的需要，也就是减少重复性代码。借助这种机制，你可以在现有类的基础上进行设计并充分利用它们已经具备的各种方法，而对设计进行修改也更为轻松。<br><strong>继承的优点</strong>：减少重复性代码、方便修改。<br><strong>继承的缺点</strong>：可能导致父类和子类产生强耦合。</p>
+<h2 id="类式继承"><a href="#类式继承" class="headerlink" title="类式继承"></a>类式继承</h2><p>类式继承是<strong>原型链继承</strong>和<strong>构造函数继承</strong>的组合，所以这里的类式继承，在一些书上也叫作组合继承。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*Class Person*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*Class Author*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Author</span>(<span class="params">name, books</span>) </span>&#123;</div><div class="line">    Person.call(<span class="keyword">this</span>, name); <span class="comment">//Call the superclass's constructor in the scope of this.</span></div><div class="line">    <span class="keyword">this</span>.books = books; <span class="comment">//Add an attribute to Author.</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">Author.prototype = <span class="keyword">new</span> Person(); <span class="comment">//Set up the prototype chain.</span></div><div class="line">Author.prototype.constructor = Author; <span class="comment">//set the constructor attribute to Author.</span></div><div class="line">Author.prototype.getBooks = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//Add a method to Author.</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.books;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>这里让Author这个类去继承了Person这个类。</p>
+<p>首先要创建子类Author的构造函数。<strong>在构造函数中，调用超类Person的构造函数，并将name参数传给它。</strong>我们知道，在使用new运算符的时候，系统会为你做一些事。它先创建一个空对象，然后调用构造函数。在些过程中，这个空对象处于作用域链的最前端。而在Author函数中调用超类Person的构造函数时，你必须手工完成同样的任务：<strong>Person.call(this, name)</strong>。这条语句调用了Person的构造函数，并且在此过程中让那个空对象（new Author出来的空对象，用this代表）处于作用域链的最前端，而name则被作业参数传入。</p>
+<p>在JavaScript中，每个函数对象都有一个名为prototype的属性，这个属性要么指向另一个对象，要么为null。<br><strong>在创建一个对象时，JavaScript会自动将其原型对象设置为其构造函数的prototype属性所指的对象。</strong>应该注意的是，构造函数本身也是一个对象，它也有自己的原型对象，但这个原型对象并不是它的prototype属性所指向的那个对象。函数作为一个对象，其构造函数是Function。因此，构造函数的原型对象实际上是Function.prototype所指的对象。</p>
+<p><strong>在访问对象的某个成员时，如果这个成员未见于当前对象的prototype中，那么JavaScript会在prototype属性所指的原型对象中查找它。如果在那个对象中也没有找到，那么JavaScript会沿着原型链向上逐一访问每个原型对象，直到找到这个成员（或已经查过原型链最顶端的Object.prototype对象）。这意味着为了让一个类继承另一个类，只需要将子类的prototype设置为指向超类的一个实例即可。</strong></p>
+<p>为了让Author继承Person，还必须手工将Author的prototype设置为Person的一个实例。最后一个步骤是将prototype的constructor属性重设为Author（因为把prototype属性设置为Person的实例时，其constructor属性被抹除了。</p>
+<h3 id="extend函数"><a href="#extend函数" class="headerlink" title="extend函数"></a>extend函数</h3><p>为了简化类的声明，可以把派生子类的整个过程包装在一个名为extend的函数中。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*extend function*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">subClass, superClass</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">    F.prototype = superClass.prototype;</div><div class="line">    subClass.prototype = <span class="keyword">new</span> F();</div><div class="line">    subClass.prototype.constructor = subClass;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这个函数所做的事与先前的一样。不过extend作为一项目改进，它添加了一个空函数F，并将用它创建的一个对象实例插入原型链中。<strong>这样做可以避免创建超类的新实例，因为它可能会比较庞大，而且有时超类的构造函数有一些副作用，或者执行一些需要进行大量计算的任务。</strong></p>
+<p>使用了extend函数后，前面那个Person/Author的例子变成了这个样子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*Class Person*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*Class Author*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Author</span>(<span class="params">name, books</span>) </span>&#123;</div><div class="line">    Person.call(<span class="keyword">this</span>, name); <span class="comment">//Call the superclass's constructor in the scope of this.</span></div><div class="line">    <span class="keyword">this</span>.books = books; <span class="comment">//Add an attribute to Author.</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">extend(Author, Person);</div><div class="line"></div><div class="line">Author.prototype.getBooks = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.books;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>还有一个问题：超类（Person）的名称被固化在了Author类的声明之中：<strong>Person.call(this, name)</strong>。更好的做法是像下面这样用一种更具普适性的方式来引用父类。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*Extend function, improved.*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">subClass, superClass</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">    F.prototype = superClass.prototype;</div><div class="line">    subClass.prototype = <span class="keyword">new</span> F();</div><div class="line">    subClass.prototype.constructor = subClass;</div><div class="line"></div><div class="line">    subClass.superclass = superClass.prototype;</div><div class="line">    <span class="keyword">if</span>(superClass.prototype.constructor == <span class="built_in">Object</span>.prototype.constructor) &#123;</div><div class="line">        superClass.prototype.constructor = superClass;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这个增强版提供了superclass属性，这个属性可以用来弱化Author和Person之间的耦合。它的最后3行代码用来确保超类的prototype.constructor属性已被正确设置（即使超类就是Object类本身），在用这个新的superclass属性调用超类的构造函数时这个问题很重要：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*Class Author*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Author</span>(<span class="params">name, books</span>) </span>&#123;</div><div class="line">    Author.superclass.constructor.call(<span class="keyword">this</span>, name);</div><div class="line">    <span class="keyword">this</span>.books = books;</div><div class="line">&#125;</div><div class="line">extend(Author, Person);</div><div class="line">Author.prototype.getBooks = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.books;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>另外，有了superclass属性，就可以直接调用超类中的方法。这在既要重定义（重写）超类的某个方法而又想访问其在超类中的实现时可以派上用场。例如，为了用一个新的getName方法重定义（重写）Person类中的同名方法，你可以先用Author.superclass.getName获得作者的名字，然后在此基础上添加其他信息：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Author.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> name = Author.superclass.getName.call(<span class="keyword">this</span>);</div><div class="line">    <span class="keyword">return</span> name + <span class="string">', Author of '</span> + <span class="keyword">this</span>.getBooks().join(<span class="string">', '</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h2><p>原型式继承需要用到一个创建克隆对象的函数：clone()，它可以用来创建新的类object对象。它会创建一个空对象，而该对象的原型对象被设置成为object。这意味着在新对象中查找某个方法或属性时，如果找不到，那个查找过程会在其原型对象中继续进行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*Clone function*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">object</span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">    F.prototype = object;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>使用原型式继承，并不需要用类来定义对象的结构，只需要直接创建一个对象即可。可以从上面的代码看出来，这个对象随后可以被新的对象重用，这得益于原型链查找的工作机制。该对象被称为<strong>原型对象(prototype object)</strong>，这是因为它为其他对象应有的模样提供了一个原型。这正是原型式继承这个名称的由来。</p>
+<p>我们重新设计Person和Author：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*Person Prototype Object*/</span></div><div class="line"><span class="keyword">var</span> Person = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'default name'</span>,</div><div class="line">    <span class="attr">getName</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>Person现在是一个对象字面量，并没有使用一个名为Person的构造函数来定义类的结构。它是所要创建的其他各种类Person对象的原型对象。</p>
+<p>你不必为创建Author而定义一个Person的子类，只要执行一次克隆即可：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*Author Prototype Object*/</span></div><div class="line"><span class="keyword">var</span> Author = clone(Person);</div><div class="line">Author.books = []; <span class="comment">//Default value</span></div><div class="line">Author.getBooks = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.books;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后你可以重定义该克隆中的方法和属性。可以个性在Person中提供的默认值，也可以添加新的属性和方法。这样一来就创建了一个新的原型对象，你可以将其用于创建新的类Author对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> author = [];</div><div class="line"></div><div class="line">author[<span class="number">0</span>] = clone(Author);</div><div class="line">author[<span class="number">0</span>].name = <span class="string">'Dustin Diaz'</span>;</div><div class="line">author[<span class="number">0</span>].books = [<span class="string">'JavaScript Design Patterns--DD'</span>];</div><div class="line"></div><div class="line">author[<span class="number">1</span>] = clone(Author);</div><div class="line">author[<span class="number">1</span>].name = <span class="string">'Ross Harmes'</span>;</div><div class="line">author[<span class="number">1</span>].books = [<span class="string">'JavaScript Design Patterns--RH'</span>];</div><div class="line"></div><div class="line">author[<span class="number">0</span>].getName();  <span class="comment">//'Dustin Diaz'</span></div><div class="line">author[<span class="number">0</span>].getBooks(); <span class="comment">//['JavaScript Design Patterns--DD']</span></div><div class="line">author[<span class="number">1</span>].getName();  <span class="comment">//'Ross Harmes'</span></div><div class="line">author[<span class="number">1</span>].getBooks();  <span class="comment">//['JavaScript Design Patterns--RH']</span></div></pre></td></tr></table></figure></p>
+<h3 id="对继承而来的成员的读和写的不对等性"><a href="#对继承而来的成员的读和写的不对等性" class="headerlink" title="对继承而来的成员的读和写的不对等性"></a>对继承而来的成员的读和写的不对等性</h3><p>在类式继承中，Author的每一个实例都有一份自己的books数组副本，可以用代码author[1].books.push(‘New Book Title’)为其添加元素。<strong>但是对于使用原型式继承方式创建的类Author对象来说，由于原型链接的工作方式，这种做法并非一开始就能行得能。一个克隆并非其原型对象的一份完全独立的副本（克隆只是浅复制），它只是一个以那个对象为原型对象的对象而已。克隆刚被创建时，author[1].name其实是一个返指最初的Person.name的链接。</strong></p>
+<p>对于从原型对象继承而来的成员，其读和写具有内在的不对等性。在读取author[1].name的值时，如果你还没有直接为author[1]实例定义name属性的话，那么所得到的是其原型对象的同名属性值。而在写放author[1].name的值时，你是在直接为author[1]对象定义一个新属性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> authorClone = clone(Author);</div><div class="line"><span class="built_in">console</span>.log(authorClone.name); <span class="comment">//打印的是Person.name，值为'default name'。</span></div><div class="line">                                <span class="comment">//因为这时候，authorClone没有name属性，沿着原型链向上找，</span></div><div class="line">                                <span class="comment">//Author原型对象也没有name属性，继续沿着原型链向上找，</span></div><div class="line">                                <span class="comment">//直到找到Person.name</span></div><div class="line">authorClone.name = <span class="string">'new name'</span>; <span class="comment">//为authorClone的name属性设置值</span></div><div class="line"><span class="built_in">console</span>.log(authorClone.name); <span class="comment">//打印的是'new name'</span></div><div class="line">authorClone.books.push(<span class="string">'new book'</span>); <span class="comment">//同样的，push的时候，先在authorClone中打books属性，</span></div><div class="line">                                    <span class="comment">//找不到，沿着原型链向上找，在Author中有该属性，</span></div><div class="line">                                    <span class="comment">//所以push修改的是原型对象Author.books的值。</span></div><div class="line">authorClone.books = []; <span class="comment">//添加books数组到authorClone对象自己上。</span></div><div class="line">authorClone.books.push(<span class="string">'new book'</span>); <span class="comment">//现在修改的就是authorClone上的books数组。</span></div></pre></td></tr></table></figure></p>
+<p>我们从上面例子中看到，向authorClone.books数组中添加新元素，有时候实际上是把这个元素添加到Author.books数组中。<strong>这个很危险，因为你对那个值的修改不仅会影响到Author，而且还会影响到所有继承了Author但还未改写那个属性的默认值的对象。</strong></p>
+<p>有时候原型对象自己也含有子对象。如果想覆盖子对象中的一个属性值，你不得不重新创建整个子对象。这可以通过将该子对象设置为一个空对象字面量，然后对其进行重塑而办到。<strong>但这意味着克隆出来的对象必须知道其原型对象的每一个子对象的确切结构和默认值。这样对象之间就形成了比较强的耦合</strong>。</p>
+<p>为了尽量弱化对象之间的耦合，任何复杂的子对象都应该使用方法来创建：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> CompoundObject = &#123;</div><div class="line">    <span class="attr">string1</span>: <span class="string">'default value'</span>,</div><div class="line">    <span class="attr">childObject</span>: &#123;</div><div class="line">        <span class="attr">bool</span>: ture,</div><div class="line">        <span class="attr">num</span>: <span class="number">10</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> compoundObjectClone = clone(CompoundObject);</div><div class="line"></div><div class="line"><span class="comment">//坏了！改变了CompoundObject.childObject.num的值。</span></div><div class="line">compoundObjectClone.childObject.num = <span class="number">5</span>;</div><div class="line"></div><div class="line"><span class="comment">//还好，我们可以重新创建整个子对象。前提是我们知道子对象的结构</span></div><div class="line"><span class="comment">//和默认值，这样对象之间就形成了比较强的耦合</span></div><div class="line">compoundObjectClone.childObject = &#123;</div><div class="line">    <span class="attr">bool</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">num</span>: <span class="number">5</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>有没有更好的办法呢？有！用一个工厂方法来创建childObject：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> CompoundObject = &#123;&#125;;</div><div class="line">CompoundObject.string1 = <span class="string">'default name'</span>;</div><div class="line">CompoundObject.createChildObject = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">bool</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">num</span>: <span class="number">10</span></div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">CompoundObject.childObject = CompoundObject.createChildObject();</div><div class="line"></div><div class="line"><span class="keyword">var</span> compoundObjectClone = clone(CompoundObject);</div><div class="line"><span class="comment">//compoundObjectClone.childObject = CompoundObject.createChildObject();</span></div><div class="line"><span class="comment">//我觉得下面这样写比上一行注释那样写会好一点。</span></div><div class="line">compoundObjectClone.childObject = compoundObjectClone.createChildObject(); </div><div class="line">compoundObjectClone.childObject.num = <span class="number">5</span>;</div></pre></td></tr></table></figure></p>
+<h2 id="类式继承和原型式继承的对比"><a href="#类式继承和原型式继承的对比" class="headerlink" title="类式继承和原型式继承的对比"></a>类式继承和原型式继承的对比</h2><p>类式继承和原型式继承是大相径庭的两种继承范型，它们生成的对象也有不同的行为方式。两种继承的范型都各有其优缺点。</p>
+<p>类式继承是大多数JavaScript程序员比较熟悉、用得比较多的继承范型。如果你设计的是一个供众人使用的API，或者可能会有不熟悉原型式继承的其他程序员基于你的代码进行设计，那么最好还是用类式继承。</p>
+<p>原型式继承更能节约内存。原型链读取成员的方式使得所有克隆出来的对象都共享每个属性和方法的唯一一份实例，只有在直接设置了某个克隆出来的对象的属性和方法时，情况才会有所变化。与此相比，在类式继承方式中创建的每一个对象在内存中都有自己的一套属性（和私用方法）的副本。原型式继承在这方面的节约效果很突出。</p>
+<h2 id="掺元类"><a href="#掺元类" class="headerlink" title="掺元类"></a>掺元类</h2><p>这是一种重用代码的方法，不需要用到严格的继承。如果想把一个函数用到多个类中，可以通过扩充（augmentation）的方式让这些类共享该函数。其实际的做法大体为：先创建一个包含各种通用方法的类，然后再用它扩充其它类。这种包含通用方法的类称为掺元类（mixin class）。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*Mixin class*/</span></div><div class="line"><span class="keyword">var</span> Mixin = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">Mixin.prototype = &#123;</div><div class="line">    <span class="attr">serialize</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> output = [];</div><div class="line">        <span class="keyword">for</span>(key <span class="keyword">in</span> <span class="keyword">this</span>) &#123;</div><div class="line">            output.push(key + <span class="string">': '</span> + <span class="keyword">this</span>[key]);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> output.join(<span class="string">', '</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">augment(Author, Mixin);</div><div class="line"></div><div class="line"><span class="keyword">var</span> author = <span class="keyword">new</span> Author(<span class="string">'Ross Harmes'</span>, [<span class="string">'JavaScript Design Patterns'</span>]);</div><div class="line"><span class="keyword">var</span> serializedString = author.serialize();</div></pre></td></tr></table></figure></p>
+<p>augment函数很简单。它用一个for…in循环遍访予类（giving class）的prototype中的每一个成员，并将其添加到受类（receiving class）的prototype中。如果受类中已经存在同名成员，则跳过这个成员，转而处理下一个。受类中的成员不会被改写。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*Augment function*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">augment</span>(<span class="params">receivingClass, givingClass</span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span>(methodName <span class="keyword">in</span> givingClass.prototype) &#123;</div><div class="line">        <span class="keyword">if</span>(!receivingClass.prototype[methodName]) &#123;</div><div class="line">            recevingClass.prototype[methodName] = givingClass.prototype[methodName];    </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这个函数还可以再改进一下。如果掺元类中包含许多方法，但你只想复制其中的一两个。下面的新版本会检查是否存在额外的可选参数，如果存在，刚只复制那些名称与这些参数匹配的方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*Augment function, improved*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Augment</span>(<span class="params">receivingClass, givingClass</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(argments[<span class="number">2</span>]) &#123; <span class="comment">//只扩充指定的方法</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">2</span>, len = <span class="built_in">arguments</span>.length; i &lt; len; i++) &#123;</div><div class="line">            receivingClass.prototype[<span class="built_in">arguments</span>[i]] = givingClass.prototype[<span class="built_in">arguments</span>[i]];</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">//扩充所有方法</span></div><div class="line">        <span class="keyword">for</span>(methodName <span class="keyword">in</span> givingClass.prototype) &#123;</div><div class="line">            <span class="keyword">if</span>(!receivingClass.prototype[methodName]) &#123;</div><div class="line">                recevingClass.prototype[methodName] = givingClass.prototype[methodName];    </div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>现在就可以用augment(Author, Mixin, ‘serialize’)；这条语句来达到只为Author类添加一个serialize方法的目的。</p>
+<p><strong>用一些方法来扩充一个类有时比让这个类继承另一个类更合适。这是一种避免出现重复性代码的轻便的解决方法。不过适合这种方案的场合并不是很多。只有那些通用到足以使其在彼此大不相同的各种类都能派上用场的方法才适合于共享，如果那些类彼此的差异不是那么大，那么普通的继承往往更合适。</strong></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Technology/">Technology</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/JavaScript/">JavaScript</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/07/12/JavaScript的继承/" data-title="JavaScript的继承 | WingUNO" data-tsina="2242447003" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/07/22/CSS后代选择器与子选择器的性能对比/" title="CSS后代选择器与子选择器的性能对比">
+  <strong>上一篇：</strong><br/>
+  <span>
+  CSS后代选择器与子选择器的性能对比</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/05/08/仿iOS列表风格-下划线/"  title="仿iOS列表风格(下划线)">
+ <strong>下一篇：</strong><br/> 
+ <span>仿iOS列表风格(下划线)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/07/12/JavaScript的继承/" data-title="JavaScript的继承" data-url="http://yoursite.com/2016/07/12/JavaScript的继承/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript的继承"><span class="toc-number">1.</span> <span class="toc-text">JavaScript的继承</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么需要继承"><span class="toc-number">1.1.</span> <span class="toc-text">为什么需要继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类式继承"><span class="toc-number">1.2.</span> <span class="toc-text">类式继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#extend函数"><span class="toc-number">1.2.1.</span> <span class="toc-text">extend函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型式继承"><span class="toc-number">1.3.</span> <span class="toc-text">原型式继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对继承而来的成员的读和写的不对等性"><span class="toc-number">1.3.1.</span> <span class="toc-text">对继承而来的成员的读和写的不对等性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类式继承和原型式继承的对比"><span class="toc-number">1.4.</span> <span class="toc-text">类式继承和原型式继承的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#掺元类"><span class="toc-number">1.5.</span> <span class="toc-text">掺元类</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="WingMrL" data-width="100%" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Technology/" title="Technology">Technology<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/ife/" title="ife">ife<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/面试/" title="面试">面试<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/排序/" title="排序">排序<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GitHub/" title="GitHub">GitHub<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C语言/" title="C语言">C语言<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PlayCanvas/" title="PlayCanvas">PlayCanvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ife/" title="ife">ife<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/浮动/" title="浮动">浮动<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://segmentfault.com/a/1190000002804472" target="_blank" title="github上值得关注的前端项目">Github前端项目</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://codingpoorcat.github.io/" target="_blank" title="Cat&#39;s Blog">Cat&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://xiguabanhua.github.io/" target="_blank" title="XiGua&#39;s Blog">XiGua&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m WingUNO. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2242447003" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/WingMrL" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/winguno" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:15622746317@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="winguno">winguno</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"winguno"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

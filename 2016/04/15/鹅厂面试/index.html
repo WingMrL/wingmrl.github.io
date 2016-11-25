@@ -1,0 +1,637 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>鹅厂一面 | WingUNO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="winguno">
+    
+
+    
+    <meta name="description" content="先来一个数据结构的：实现微信，附近的人，这个功能，说说你的设计，要怎么去实现？
+
+听到这个整个人都不好了，第一想到的是GPS定位和距离，后面乱扯，说了无向带权图，然后就没有然后了。
+
+关于TCP，如果要发送三个数据包给服务器，服务器会收到多少个包？
+
+我说了一个TCP三次握手，说至少收到5个包。结果他说我只会一点基础，他说其实还有比较复杂的拆分组合问题。
+
+了解原型链吗？假设有函数A，然后让函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="鹅厂一面">
+<meta property="og:url" content="http://yoursite.com/2016/04/15/鹅厂面试/index.html">
+<meta property="og:site_name" content="WingUNO">
+<meta property="og:description" content="先来一个数据结构的：实现微信，附近的人，这个功能，说说你的设计，要怎么去实现？
+
+听到这个整个人都不好了，第一想到的是GPS定位和距离，后面乱扯，说了无向带权图，然后就没有然后了。
+
+关于TCP，如果要发送三个数据包给服务器，服务器会收到多少个包？
+
+我说了一个TCP三次握手，说至少收到5个包。结果他说我只会一点基础，他说其实还有比较复杂的拆分组合问题。
+
+了解原型链吗？假设有函数A，然后让函数">
+<meta property="og:updated_time" content="2016-04-19T09:18:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="鹅厂一面">
+<meta name="twitter:description" content="先来一个数据结构的：实现微信，附近的人，这个功能，说说你的设计，要怎么去实现？
+
+听到这个整个人都不好了，第一想到的是GPS定位和距离，后面乱扯，说了无向带权图，然后就没有然后了。
+
+关于TCP，如果要发送三个数据包给服务器，服务器会收到多少个包？
+
+我说了一个TCP三次握手，说至少收到5个包。结果他说我只会一点基础，他说其实还有比较复杂的拆分组合问题。
+
+了解原型链吗？假设有函数A，然后让函数">
+
+    
+    <link rel="alternative" href="/atom.xml" title="WingUNO" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="WingUNO" title="WingUNO"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="WingUNO">WingUNO</a></h1>
+				<h2 class="blog-motto">In Simple Way.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/15/鹅厂面试/" title="鹅厂一面" itemprop="url">鹅厂一面</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="winguno" target="_blank" itemprop="author">winguno</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-15T03:15:26.000Z" itemprop="datePublished"> Published 2016-04-15</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			
+		
+		</div>
+		
+		<p> <strong>先来一个数据结构的：实现微信，附近的人，这个功能，说说你的设计，要怎么去实现？</strong></p>
+<ul>
+<li>听到这个整个人都不好了，第一想到的是GPS定位和距离，后面乱扯，说了无向带权图，然后就没有然后了。</li>
+</ul>
+<p><strong>关于TCP，如果要发送三个数据包给服务器，服务器会收到多少个包？</strong></p>
+<ul>
+<li>我说了一个TCP三次握手，说至少收到5个包。结果他说我只会一点基础，他说其实还有比较复杂的拆分组合问题。</li>
+</ul>
+<p><strong>了解原型链吗？假设有函数A，然后让函数B继承函数A，再在B上添加自己特有的功能</strong></p>
+<ul>
+<li>这里可以看一下智能社的javascript视频教程：29-JS面向对象高级。也可以参考JS高程第6章组合继承。</li>
+<li>属性的继承在定义B函数的时候，在B函数的作用域中，用 A.call ( this, 属性1，属性2，….) 。this是把B的运行环境传到了A中，也就实现了属性的继承。</li>
+<li>方法的继承，也就是原型链的应用：遍历A.prototype，逐一赋值给B.prototype。为什么要逐一赋值呢？因为prototype是一个引用，如果直接赋值，结果会导致A和B的prototype指向同一内容。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.colors = [<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"green"</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    alert(<span class="keyword">this</span>.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span> (<span class="params">name, age</span>) </span>&#123;</div><div class="line">    <span class="comment">//继承属性</span></div><div class="line">    SuperType.call(<span class="keyword">this</span>, name);</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//继承方法</span></div><div class="line">SubType.prototype = <span class="keyword">new</span> SuperType();</div><div class="line"></div><div class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    alert(<span class="keyword">this</span>.age);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> instance1 = <span class="keyword">new</span> SubType(<span class="string">"Wing"</span>, <span class="number">29</span>);</div><div class="line">instance1.colors.push(<span class="string">"black"</span>);</div><div class="line">alert(instance1.colors);</div><div class="line">instance1.sayName();</div><div class="line">instance1.sayAge();</div><div class="line"></div><div class="line"><span class="keyword">var</span> instance2 = <span class="keyword">new</span> SubType(<span class="string">"Greg"</span>, <span class="number">27</span>);</div><div class="line">alert(instance2.colors);</div><div class="line">instance2.sayName();</div><div class="line">instance2.sayAge();</div><div class="line"></div><div class="line"><span class="keyword">var</span> instance3 = <span class="keyword">new</span> SuperType(<span class="string">"6666"</span>);</div><div class="line">alert(instance3.colors);</div><div class="line">instance3.sayName();</div><div class="line"></div><div class="line"><span class="comment">// instance3.sayAge();//会报错！</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>用过cookie吗？用javascript实现cookie的存取</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">name, value, iDay</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">isNaN</span>(iDay)) &#123;</div><div class="line">        <span class="keyword">return</span> ;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> oDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    oDate.setDate(oDate.getDate() + iDay);</div><div class="line">    <span class="built_in">document</span>.cookie = name + <span class="string">'='</span> + value + <span class="string">';expires='</span> + oDate;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> arr = <span class="built_in">document</span>.cookie.split(<span class="string">'; '</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;arr.length; i++) &#123;</div><div class="line">        <span class="keyword">var</span> arr2 = arr[i].split(<span class="string">'='</span>);</div><div class="line">        <span class="keyword">if</span>(arr2[<span class="number">0</span>] == name) &#123;</div><div class="line">            <span class="keyword">return</span> arr2[<span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="string">''</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeCookie</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    setCookie(name, <span class="number">1</span>, <span class="number">-1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>安全问题有哪些？怎么预防跨域攻击？</strong></p>
+<ul>
+<li>首先代码里对用户输入的地方和变量都需要仔细检查长度和对”&lt;”,”&gt;”,”;”,”’”等字符做过滤；其次任何内容写到页面之前都必须加以encode，避免不小心把html tag 弄出来。这一个层面做好，至少可以堵住超过一半的XSS 攻击。</li>
+<li>首先，避免直接在cookie 中泄露用户隐私，例如email、密码等等。</li>
+<li>其次，通过使cookie 和系统ip 绑定来降低cookie 泄露后的危险。这样攻击者得到的cookie 没有实际价值，不可能拿来重放。</li>
+<li>尽量采用POST 而非GET 提交表单。</li>
+</ul>
+<p><strong>什么时候用GET，什么时候用POST？</strong></p>
+<ul>
+<li>GET：一般用于信息获取，使用URL传递参数，对所发送信息的数量也有限制，一般在2000个字符</li>
+<li>POST：一般用于修改服务器上的资源，对所发送的信息没有限制。</li>
+<li>GET方式需要使用Request.QueryString来取得变量的值，而POST方式通过Request.Form来获取变量的值，也就是说Get是通过地址栏来传值，而Post是通过提交表单来传值。</li>
+<li>然而，在以下情况中，请使用 POST 请求</li>
+<li>无法使用缓存文件（更新服务器上的文件或数据库）</li>
+<li>向服务器发送大量数据（POST 没有数据量限制）</li>
+<li>发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠</li>
+</ul>
+<p><strong>了解JS的垃圾回收机制吗？</strong></p>
+<ul>
+<li><strong>标记清除（mark and sweep）</strong><br>这是JavaScript最常见的垃圾回收方式，当变量进入执行环境的时候，比如函数中声明一个变量，垃圾回收器将其标记为“进入环境”，当变量离开环境的时候（函数执行结束）将其标记为“离开环境”。<br>垃圾回收器会在运行的时候给存储在内存中的所有变量加上标记，然后去掉环境中的变量以及被环境中变量所引用的变量（闭包），在这些完成之后仍存在标记的就是要删除的变量了</li>
+<li><strong>引用计数(reference counting)</strong><br>在低版本IE中经常会出现内存泄露，很多时候就是因为其采用引用计数方式进行垃圾回收。引用计数的策略是跟踪记录每个值被使用的次数，当声明了一个 变量并将一个引用类型赋值给该变量的时候这个值的引用次数就加1，如果该变量的值变成了另外一个，则这个值得引用次数减1，当这个值的引用次数变为0的时 候，说明没有变量在使用，这个值没法被访问了，因此可以将其占用的空间回收，这样垃圾回收器会在运行的时候清理掉引用次数为0的值占用的空间。<br>在IE中虽然JavaScript对象通过标记清除的方式进行垃圾回收，但BOM与DOM对象却是通过引用计数回收垃圾的， 也就是说只要涉及BOM及DOM就会出现<strong>循环引用问题</strong>。</li>
+</ul>
+<p><strong>怎么解决循环引用问题？闭包使用会不会导致内在泄漏？</strong></p>
+<ul>
+<li>这个….</li>
+</ul>
+<p><strong>浏览器的渲染过程？</strong></p>
+<ol>
+<li>浏览器分析链接指向页面的URL</li>
+<li>浏览器向DNS请求解析出IP地址</li>
+<li>得到IP后浏览器与服务器建立TCP链接</li>
+<li>浏览器发出请求</li>
+<li>服务器接到请求后，解析数据，生成html文件内容放入http response中，返回给浏览器。</li>
+<li>浏览器解析http response</li>
+<li>浏览器创建DOM树</li>
+<li>浏览器下载css, 并应用在DOM树中，进行渲染。</li>
+<li>浏览器下载js，并解析执行JS。</li>
+</ol>
+<p><strong>JS会不会阻塞页面的渲染？用什么方法可以防止阻塞？这个defer和async在IE和chrome下有什么不同？</strong></p>
+<ul>
+<li>会。</li>
+<li>延迟加载，可以在script标签上加上defer或者async，也可以放在body内的最下面。</li>
+<li>defer是从IE4以来就有了的属性，但因为这个功能还未被所有主流浏览器实施，开发人员不应假设脚本实际上都会被延迟执行。defer属性不应在没有src属性的脚本标签上使用。从Gecko 1.9.2开始, 没有src属性的脚本标签的defer属性会被忽略。但是在Gecko 1.9.1中，如果定义了defer属性，即使内嵌的脚本也会被延迟执行。</li>
+<li>async是HTML5的新属性，该布尔属性指示浏览器是否在允许的情况下异步执行该脚本。该属性对于内联脚本无作用 (即没有src属性的脚本）。IE10才支持了async属性。<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/script#.E6.B5.8F.E8.A7.88.E5.99.A8.E5.85.BC.E5.AE.B9.E6.80.A7" target="_blank" rel="external">详细点这里</a></li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/面试/">面试</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/面试/">面试</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/04/15/鹅厂面试/" data-title="鹅厂一面 | WingUNO" data-tsina="2242447003" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/04/19/清除浮动常用的几种方法/" title="清除浮动常用的几种方法">
+  <strong>上一篇：</strong><br/>
+  <span>
+  清除浮动常用的几种方法</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/04/14/C语言实现快速排序/"  title="C语言实现快速排序">
+ <strong>下一篇：</strong><br/> 
+ <span>C语言实现快速排序
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/04/15/鹅厂面试/" data-title="鹅厂一面" data-url="http://yoursite.com/2016/04/15/鹅厂面试/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="WingMrL" data-width="100%" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Technology/" title="Technology">Technology<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/ife/" title="ife">ife<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/面试/" title="面试">面试<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/排序/" title="排序">排序<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GitHub/" title="GitHub">GitHub<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C语言/" title="C语言">C语言<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PlayCanvas/" title="PlayCanvas">PlayCanvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ife/" title="ife">ife<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/浮动/" title="浮动">浮动<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://segmentfault.com/a/1190000002804472" target="_blank" title="github上值得关注的前端项目">Github前端项目</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://codingpoorcat.github.io/" target="_blank" title="Cat&#39;s Blog">Cat&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://xiguabanhua.github.io/" target="_blank" title="XiGua&#39;s Blog">XiGua&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m WingUNO. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2242447003" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/WingMrL" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/winguno" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:15622746317@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="winguno">winguno</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"winguno"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

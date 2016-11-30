@@ -1,0 +1,388 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-03-21 12:43:57
+ * @version $Id$
+ */
+* {
+	padding: 0;
+	margin: 0;
+}
+.container, .header, .main, .mTop, .mMiddle, .mBottom, .footer{
+	width: 892px;
+}
+.container {
+	height: 1386px;
+	margin: 0 auto;
+	padding: 0 44px 0 44px;
+}
+.header, .footer {
+	height: 61px;
+	background: #fff;
+}
+.header {
+	border-bottom: 2px solid #938e8c;
+	position: relative;
+}
+.header .logo {
+	width: 110px;
+	height: 61px;
+	background: #d45d5c;
+	position: relative;
+	float: left;
+}
+.header .logo span {
+	color: #fff;
+	font: 12px '黑体';
+	position: relative;
+	left: 5px;
+	top: 40px;
+}
+.header time {
+	float: right;
+	color: #d45d5c;
+	font: 12px '黑体';
+	position: relative;
+	top: 44px;
+	right: 1px;
+}
+.mTop, .mMiddle, .mBottom{
+	margin-top: 34px;
+	background: #fff;
+}
+.mTop {
+	height: 301px;
+}
+.tLeft {
+	position: relative;
+	float: left;
+}
+.tLeft, .tLeft img {
+	width: 641px;
+	height: 301px;
+}
+.tLeft .green, .tLeft .red {
+	width: 191px;
+	height: 301px;
+	opacity: 0.3;
+	filter: alpha(opacity: 0.3);
+}
+.tLeft .green {
+	background: #A4FFA4;
+	position: absolute;
+	z-index: 100;
+	left: 0;
+	top: 0;
+}
+.tLeft .red {
+	background: #F8AAAA;
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	right: 0;
+}
+.tRight {
+	width: 203px;
+	height: 299px;
+	background: #fff;
+	float: right;
+	border-top: 2px solid #cc8091;
+}
+.tRight h2 {
+	color: #000;
+	font: 14px '微软雅黑';
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	position: relative;
+}
+.tRight h2::first-letter {
+	font-size: 1.3em;
+	font-weight: bolder;
+}
+.tRight .about, .tRight .tech{
+	border-bottom: 2px solid #938e8c;
+}
+.tRight .about {
+	width: 57px;
+	margin-top: 8px;
+}
+.tRight .tech {
+	width: 108px;
+}
+.tRight .pAb {
+	color: #676767;
+	font: 12px '楷体';
+}
+.tRight .seven {
+	display: block;
+	color: #75b86b;
+	font: italic 116px '微软雅黑';
+	position: relative;
+	left: -20px;
+}
+.tRight .three {
+	float: left;
+	color: #cc8091;
+	font: 55px '微软雅黑';
+}
+.tRight .css {
+	color: #cc8091;
+	font: 21px '微软雅黑';
+	position: relative;
+	top: 26px;
+	left: 6px;
+}
+.tRight .pCss {
+	color: #938e8c;
+	font: 12px '微软雅黑';
+	position: relative;
+	top: 18px;
+	left: 6px;
+}
+.mMiddle {
+	overflow: hidden;
+}
+.mMiddle div{
+	float: left;
+	margin-right: 10px;
+	background: #fff;
+}
+.mMiddle .what {
+	width: 231px;
+}
+.mMiddle .when {
+	width: 221px;
+}
+.mMiddle .how {
+	width: 161px;
+}
+.mMiddle div span {
+	display: block;
+	font: 16px '微软雅黑';
+	text-decoration: underline;
+	margin: 5px 0;
+	font-weight: bolder;
+}
+.mMiddle .what span {
+	color: #418c59;
+}
+.mMiddle .when span {
+	color: #d2994f;
+}
+.mMiddle .how span {
+	color: #cc7480;
+}
+.mMiddle .what p {
+	font: 12px '宋体';
+	color: #767777;
+	line-height: 18px;
+}
+.mMiddle .when p {
+	font: 12px '微软雅黑';
+	color: #231815;
+	line-height: 20px;
+	opacity: 0.7;
+	filter: alpha(opacity: 0.7);
+}
+.mMiddle .how p {
+	font: 12px '微软雅黑';
+	color: #231815;
+	line-height: 26px;
+	opacity: 0.7;
+	filter: alpha(opacity: 0.7);
+}
+.mMiddle .how p p{
+	color: black;
+	font: 12px '微软雅黑';
+}
+.mMiddle .how p span{
+	color: #cd4a48;
+	display: inline;
+	font: italic 12px '微软雅黑';
+}
+.mBottom {
+	height: 631px;
+	position: relative;
+}
+.mBottom .images {
+	width: 458px;
+	height: 271px;
+	background: black;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.mBottom .images img {
+	width: 458px;
+	height: 271px;
+}
+.mBottom div.b {
+	width: 458px;
+	height: 61px;
+	position: absolute;
+	z-index: 100;
+	background: #000;
+	background: rgba(0,0,0, 0.4);
+	bottom: 0;
+}
+.mBottom div.b i {
+	display: block;
+	width: 3px;
+	height: 44px;
+	background: #72B16A;
+	margin: 8px 0 0 34px;
+	float: left;
+}
+.mBottom div.b .fe {
+	color: #fff;
+	display: block;
+	font: 26px '微软雅黑';
+	margin: 10px 0 0 20px;
+	float: left;
+}
+.mBottom div.b .fefe {
+	color: #72b16a;
+	display: block;
+	float: left;
+	margin: 26px 0 0 10px;
+	font: italic 14px '微软雅黑';
+	letter-spacing: 140%;
+}
+.mBottom .title {
+	width: 404px;
+	height: 179px;
+	border-bottom: 2px solid #11456b;
+	position: absolute;
+	color: #11456b;
+	font: 42px '黑体';
+	font-weight: bolder;
+	top: 0;
+	left: 0;
+}
+.mBottom .title span {
+	color: #f5e327;
+	font: italic 72px '黑体';
+}
+.mBottom .article {
+	width: 404px;
+	height: 418px;
+	position: absolute;
+	color: #767777;
+	font: 12px '宋体';
+	line-height: 16px;
+	bottom: 0;
+	left: 0;
+}
+.mBottom .article span {
+	color: #f5e327;
+	float: left;
+	font: 70px '微软雅黑';
+}
+.mBottom .article img {
+	float: right;
+	margin: 10px 0 10px 10px;
+}
+.mBottom .article .p2 {
+	text-indent: 2em;
+}
+.mBottom .about {
+	width: 438px;
+	height: 304px;
+	padding: 20px 20px 0 0;
+	background: #eeedd6;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.mBottom .about .cont {
+	width: 428px;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 4px;
+	margin-left: 30px;
+	font: 16px '宋体';
+	color: #5a5b5b;
+}
+.mBottom .about .cont i {
+	width: 0;
+	height: 0;
+	float: left;
+	display: block;
+	border-width: 0 6px 10px;
+	margin: 5px 5px 0 5px;
+	border-style: solid;
+	border-color: transparent transparent #11456b;
+}
+.mBottom .about .cont span {
+	font-style: italic;
+}
+.mBottom .about .one {
+	width: 260px;
+	height: 160px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: #d45d5c;
+}
+.mBottom .about .one .zero {
+	width: 68px;
+	float: left;
+	margin-left: 20px;
+	font: 110px '微软雅黑';
+	color: #fff;
+}
+.mBottom .about .w {
+	width: 160px;
+	height: 82px;
+	padding: 4px 0 0 10px;
+	margin-top: 33px;
+	border-left: 2px solid #fff;
+	float: left;
+}
+.mBottom .about .w .num{
+	display: block;
+	line-height: 24px;
+	font: italic 21px '黑体';
+	color: #fff;
+}
+.mBottom .about .w .h {
+	display: block;
+	line-height: 6px;
+	color: #fff;
+	font: 12px '黑体';
+}
+.mBottom .about .hello {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 175px;
+	height: 160px;
+	color: #5a5b5b;
+	font: italic 14px '黑体';
+}
+.mBottom .about .hello span {
+	display: block;
+	width: 43px;
+	height: 24px;
+	line-height: 24px;
+	color: #d45d5c;
+	font: 72px '黑体';
+}
+.mBottom .about .hello .begin {
+	float: left;
+	position: relative;
+	left: -39px;
+}
+.mBottom .about .hello .end {
+	float: right;
+}
+.footer {
+	border-top: 2px solid #938e8c;
+	margin-top: 34px;
+}
+.footer .ife {
+	float: right;
+	color: #d45d5c;
+	font: 12px '黑体';
+}

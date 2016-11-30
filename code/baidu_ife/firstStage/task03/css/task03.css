@@ -1,0 +1,110 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-03-17 21:23:14
+ * @version $Id$
+ */
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+body {
+	padding: 20px;
+	min-width: 780px;
+}
+
+a {
+	width: 78px;
+	height: 78px;
+	display: block;
+	border: 1px solid #999;
+}
+
+.container {
+	background: #eee;
+	padding: 20px;
+	border: 1px solid #999;
+}
+
+.inner {
+	background: #fff;
+	margin-left: 220px;
+	margin-right: 140px;
+	border: 1px solid #999;
+	padding: 20px;
+}
+
+.left {
+	width: 158px;
+	background: #fff;
+	border: 1px solid #999;
+	padding: 20px;
+	float: left;
+	margin-left: -100%;
+}
+
+.left a{
+	float: left;
+	overflow: hidden;
+}
+
+.left img {
+	width: 78px;
+	height: 78px;
+}
+
+.left span{
+	width: 60px;
+	display: inline-block;
+	text-align: center;
+	margin-left: 18px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.middle {
+	float: left;
+	width: 100%;
+}
+
+.right {
+	float: left;
+	width: 118px;
+	background: #fff;
+	margin-left: -120px;
+	padding-bottom: 20px;
+	border: 1px solid #999;
+}
+
+.right ul {
+	width: 80px;
+
+}
+
+.right li {
+	width: 80px;
+	height: 80px;
+	margin: 20px 0 0 20px;
+}
+
+.right .userLogo01 {
+	background: url(../images/logo.jpg) no-repeat -10px -10px ;
+}
+
+.right .userLogo02 {
+	background: url(../images/logo.jpg) no-repeat -104px -10px ;
+}
+
+.right .userLogo03 {
+	background: url(../images/logo.jpg) no-repeat -10px -104px ;
+}
+.right .userLogo04 {
+	background: url(../images/logo.jpg) no-repeat -104px -104px ;
+}
+.clear {
+	clear: both;
+}
+

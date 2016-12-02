@@ -1,0 +1,629 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>图片四周trim处理 | WingUNO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="winguno">
+    
+
+    
+    <meta name="description" content="图片四周trim处理@(博客)[canvas, 透明, transparent, trim, 图片, image]
+
+最近在用canvas写一些生成类的模板，说白了就是用canvas画画，画了之后生成一张图片。
+策划有这到一个需求：用户上传一张二维码，就自动变成一张非有效区域变成透明的二维码。也就是要把非黑色的部分变成透明。如图
+
+说一下思路：
+
+
+我们知道canvas有个方法: getImage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图片四周trim处理">
+<meta property="og:url" content="http://yoursite.com/2016/12/02/图片四周trim处理/index.html">
+<meta property="og:site_name" content="WingUNO">
+<meta property="og:description" content="图片四周trim处理@(博客)[canvas, 透明, transparent, trim, 图片, image]
+
+最近在用canvas写一些生成类的模板，说白了就是用canvas画画，画了之后生成一张图片。
+策划有这到一个需求：用户上传一张二维码，就自动变成一张非有效区域变成透明的二维码。也就是要把非黑色的部分变成透明。如图
+
+说一下思路：
+
+
+我们知道canvas有个方法: getImage">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/Blog/QRCode01.png">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/Blog/QRCode02.png">
+<meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/Blog/QRCode03.png">
+<meta property="og:updated_time" content="2016-12-02T13:11:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图片四周trim处理">
+<meta name="twitter:description" content="图片四周trim处理@(博客)[canvas, 透明, transparent, trim, 图片, image]
+
+最近在用canvas写一些生成类的模板，说白了就是用canvas画画，画了之后生成一张图片。
+策划有这到一个需求：用户上传一张二维码，就自动变成一张非有效区域变成透明的二维码。也就是要把非黑色的部分变成透明。如图
+
+说一下思路：
+
+
+我们知道canvas有个方法: getImage">
+<meta name="twitter:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/Blog/QRCode01.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="WingUNO" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="WingUNO" title="WingUNO"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="WingUNO">WingUNO</a></h1>
+				<h2 class="blog-motto">In Simple Way.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/02/图片四周trim处理/" title="图片四周trim处理" itemprop="url">图片四周trim处理</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="winguno" target="_blank" itemprop="author">winguno</a>
+		
+  <p class="article-time">
+    <time datetime="2016-12-02T13:10:21.000Z" itemprop="datePublished"> Published 2016-12-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#图片四周trim处理"><span class="toc-number">1.</span> <span class="toc-text">图片四周trim处理</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="图片四周trim处理"><a href="#图片四周trim处理" class="headerlink" title="图片四周trim处理"></a>图片四周trim处理</h1><p>@(博客)[canvas, 透明, transparent, trim, 图片, image]</p>
+<ul>
+<li>最近在用<code>canvas</code>写一些生成类的模板，说白了就是用<code>canvas</code>画画，画了之后生成一张图片。</li>
+<li>策划有这到一个需求：用户上传一张二维码，就自动变成一张非有效区域变成透明的二维码。也就是要把非黑色的部分变成透明。如图</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/Blog/QRCode01.png" alt="QRCode01.png"></li>
+<li>说一下思路：</li>
+</ul>
+<ol>
+<li>我们知道<code>canvas</code>有个方法: <code>getImageData</code>，这个方法返回的是一个数组，记录着每个像素点的<code>rgba</code>值。所以可以这让认为：这是一个每4个为一组的数组。</li>
+<li><code>rgba</code>每一个值都是在0-255之间，那就很简单了，只要判断rgb三个值，如果都小于10，就让为这个像素点是黑色的。当然，这个临界值不一定是10，具体的话看看自己想达到怎么样的效果。</li>
+</ol>
+<ul>
+<li><p>思路说完，看看代码吧。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">TicketObj.prototype.transparentQRCode = <span class="function"><span class="keyword">function</span>(<span class="params">imgObj</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</div><div class="line">    canvas.width = <span class="number">300</span>;</div><div class="line">    canvas.height = <span class="number">300</span>;</div><div class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line">    ctx.drawImage(imgObj, <span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</div><div class="line">    <span class="keyword">var</span> img = ctx.getImageData(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</div><div class="line">    <span class="keyword">var</span> data = img.data;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = data.length; i &lt; len; i += <span class="number">4</span>) &#123;</div><div class="line">        <span class="keyword">if</span>(data[i] &lt; <span class="number">20</span> &amp;&amp; data[i+<span class="number">1</span>] &lt; <span class="number">20</span> &amp;&amp; data[i+<span class="number">2</span>] &lt; <span class="number">20</span>) &#123;</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            data[i+<span class="number">3</span>] = <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    ctx.putImageData(img, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">    <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</div><div class="line">    image.src = canvas.toDataURL(<span class="string">'imgage/png'</span>);</div><div class="line">    <span class="keyword">return</span> image;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>好了，已经满足策划的需求了。如图：</p>
+</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/Blog/QRCode02.png" alt="QRCode01.png"></li>
+<li>但是，原来的二维码四周可能会有白边。这会导致透明出来的二维码的大小可能不一样，那么，我们需要进一步把二维码四个边的透明区域去掉。</li>
+<li>还是老方法，用<code>canvas</code>的<code>getImageData</code>。</li>
+<li><p>直接上代码吧。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">TicketObj.prototype.trimImage = <span class="function"><span class="keyword">function</span>(<span class="params">c</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> ctx = c.getContext(<span class="string">'2d'</span>),</div><div class="line">    copy = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>).getContext(<span class="string">'2d'</span>),</div><div class="line">    pixels = ctx.getImageData(<span class="number">0</span>, <span class="number">0</span>, c.width, c.height),</div><div class="line">    l = pixels.data.length,</div><div class="line">    i,</div><div class="line">    bound = &#123;</div><div class="line">        <span class="attr">top</span>: <span class="literal">null</span>,</div><div class="line">        <span class="attr">left</span>: <span class="literal">null</span>,</div><div class="line">        <span class="attr">right</span>: <span class="literal">null</span>,</div><div class="line">        <span class="attr">bottom</span>: <span class="literal">null</span></div><div class="line">    &#125;,</div><div class="line">    x, y;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; l; i += <span class="number">4</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (pixels.data[i+<span class="number">3</span>] !== <span class="number">0</span>) &#123; <span class="comment">//如果不透明</span></div><div class="line">            x = (i / <span class="number">4</span>) % c.width;</div><div class="line">            y = ~~((i / <span class="number">4</span>) / c.width);</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (bound.top === <span class="literal">null</span>) &#123;</div><div class="line">                bound.top = y;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (bound.left === <span class="literal">null</span>) &#123;</div><div class="line">                bound.left = x; </div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (x &lt; bound.left) &#123;</div><div class="line">                bound.left = x;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (bound.right === <span class="literal">null</span>) &#123;</div><div class="line">                bound.right = x; </div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (bound.right &lt; x) &#123;</div><div class="line">                bound.right = x;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (bound.bottom === <span class="literal">null</span>) &#123;</div><div class="line">                bound.bottom = y;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (bound.bottom &lt; y) &#123;</div><div class="line">                bound.bottom = y;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> trimHeight = bound.bottom - bound.top,</div><div class="line">    trimWidth = bound.right - bound.left,</div><div class="line">    trimmed = ctx.getImageData(bound.left, bound.top, trimWidth, trimHeight);</div><div class="line"></div><div class="line">    copy.canvas.width = trimWidth;</div><div class="line">    copy.canvas.height = trimHeight;</div><div class="line">    copy.putImageData(trimmed, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line"></div><div class="line">    <span class="comment">// open new window with trimmed image:</span></div><div class="line">    <span class="keyword">return</span> copy.canvas;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>那这份代码其实是来自<code>github</code>的<code>Remy</code>兄弟的<a href="https://gist.github.com/remy/784508" target="_blank" rel="external">trim-canvas.js</a>。</p>
+</li>
+<li><p>最后，我们导出<code>image</code>之前，只要调用一下这个函数就行了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">TicketObj.prototype.transparentQRCode = <span class="function"><span class="keyword">function</span>(<span class="params">imgObj</span>) </span>&#123;</div><div class="line">    <span class="comment">// var canvas = document.getElementById('qrcode-canvas');</span></div><div class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</div><div class="line">    canvas.width = <span class="number">300</span>;</div><div class="line">    canvas.height = <span class="number">300</span>;</div><div class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line">    ctx.drawImage(imgObj, <span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</div><div class="line">    <span class="keyword">var</span> img = ctx.getImageData(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</div><div class="line">    <span class="keyword">var</span> data = img.data;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = data.length; i &lt; len; i += <span class="number">4</span>) &#123;</div><div class="line">        <span class="keyword">if</span>(data[i] &lt; <span class="number">20</span> &amp;&amp; data[i+<span class="number">1</span>] &lt; <span class="number">20</span> &amp;&amp; data[i+<span class="number">2</span>] &lt; <span class="number">20</span>) &#123;</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            data[i+<span class="number">3</span>] = <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    ctx.putImageData(img, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line"></div><div class="line"></div><div class="line">    canvas = <span class="keyword">this</span>.trimImage(canvas);  <span class="comment">//就在这里做了图片的trim</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</div><div class="line">    image.src = canvas.toDataURL(<span class="string">'imgage/png'</span>);</div><div class="line">    <span class="keyword">return</span> image;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>效果如图：</p>
+</li>
+<li><img src="http://7xs0cm.com1.z0.glb.clouddn.com/Blog/QRCode03.png" alt="QRCode03.png"></li>
+<li>参考：<br>强子的博文：<a href="http://www.cnblogs.com/jelly7723/p/5576442.html" target="_blank" rel="external">http://www.cnblogs.com/jelly7723/p/5576442.html</a><br>Remy：<a href="https://gist.github.com/remy/784508" target="_blank" rel="external">https://gist.github.com/remy/784508</a></li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Technology/">Technology</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/canvas/">canvas</a><a href="/tags/透明/">透明</a><a href="/tags/transparent/">transparent</a><a href="/tags/trim/">trim</a><a href="/tags/图片/">图片</a><a href="/tags/image/">image</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/12/02/图片四周trim处理/" data-title="图片四周trim处理 | WingUNO" data-tsina="2242447003" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/11/30/Zepto的tap事件穿透/"  title="Zepto的tap事件穿透">
+ <strong>下一篇：</strong><br/> 
+ <span>Zepto的tap事件穿透
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/12/02/图片四周trim处理/" data-title="图片四周trim处理" data-url="http://yoursite.com/2016/12/02/图片四周trim处理/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#图片四周trim处理"><span class="toc-number">1.</span> <span class="toc-text">图片四周trim处理</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="WingMrL" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Technology/" title="Technology">Technology<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/ife/" title="ife">ife<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/面试/" title="面试">面试<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/排序/" title="排序">排序<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GitHub/" title="GitHub">GitHub<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PlayCanvas/" title="PlayCanvas">PlayCanvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zepto/" title="zepto">zepto<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tap/" title="tap">tap<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C语言/" title="C语言">C语言<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ife/" title="ife">ife<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/透明/" title="透明">透明<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/transparent/" title="transparent">transparent<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/trim/" title="trim">trim<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/图片/" title="图片">图片<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/image/" title="image">image<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://segmentfault.com/a/1190000002804472" target="_blank" title="github上值得关注的前端项目">Github前端项目</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://codingpoorcat.github.io/" target="_blank" title="Cat&#39;s Blog">Cat&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://xiguabanhua.github.io/" target="_blank" title="XiGua&#39;s Blog">XiGua&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m WingUNO. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2242447003" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/WingMrL" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/winguno" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:15622746317@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="winguno">winguno</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"winguno"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

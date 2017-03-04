@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tinyHeart</title>
+	<style type="text/css">
+		body {
+			padding-top: 10px;
+		}
+		.all_bg {
+			position: relative;
+			width: 800px;
+			height: 600px;
+			background-image: url('http://7xs0cm.com1.z0.glb.clouddn.com/tinyHeart/imgs/cover.png');
+			margin: 0px auto;
+		}
+		#allcanvas {
+			position: relative;
+			width: 800px;
+			height: 600px;
+			margin: 0px;
+		}
+		#canvas1 {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+		}
+		#canvas2 {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 0;
+		}
+		.play {
+			position: absolute;
+			z-index: 2;
+			top: 410px;
+			left: 360px;
+			display: block;
+			height: 80px;
+			width: 80px;
+		}
+		.hidden {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="all_bg">
+		<a href="" id="play" class='play'>
+			<img src="http://7xs0cm.com1.z0.glb.clouddn.com/tinyHeart/imgs/play.png">
+		</a>
+		<div id="allcanvas">
+			<canvas id="canvas1" width="800" height="600"></canvas>
+			<canvas id="canvas2" width="800" height="600"></canvas>
+			<audio id="audio-bgm"></audio>
+			<audio id="audio-eat"></audio>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/commonFunctions.js"></script>
+</body>
+</html>

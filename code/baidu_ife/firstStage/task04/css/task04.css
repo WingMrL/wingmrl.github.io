@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-03-19 10:23:38
+ * @version $Id$
+ */
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.box {
+	width: 400px;
+	height: 200px;
+	background: #ccc;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	overflow: hidden;
+}
+
+.circle01, .circle02{
+	width: 100px;
+	height: 100px;
+	background: #fc0;
+	position: absolute;
+	border-radius: 50px;
+}
+
+.circle01 {
+	top: -50px;
+	left: -50px;
+}
+
+.circle02 {
+	right: -50px;
+	bottom: -50px;
+}

@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/user%20or%20oranization%20site.jpg">
 <meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/client.jpg">
 <meta property="og:image" content="http://7xs0cm.com1.z0.glb.clouddn.com/git%20bash%20here.png">
-<meta property="og:updated_time" content="2016-03-18T09:20:00.000Z">
+<meta property="og:updated_time" content="2017-03-08T15:30:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub + hexo 快速搭建Blog">
 <meta name="twitter:description" content="GitHub + hexo 快速搭建Blog
@@ -141,19 +141,18 @@
 <li>其实现在，你已经可以写网页，然后用Github for Windows同步到github上，就可以访问了。但是这样也太简陋，也太麻烦了，总不能每次写篇文章都要写个网页，然后又到blog主页里面改是吧！于是我们用一个叫Hexo的东西。<h4 id="Hexo介绍"><a href="#Hexo介绍" class="headerlink" title="Hexo介绍"></a>Hexo介绍</h4>Hexo的作者是tommy351，根据官方介绍，Hexo是一个简单、快速、强大的博客发布工具，支持Markdown格式。</li>
 <li><p>在安装Hexo之前，首先要安装两个东西：<br>1.<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a><br>2.<a href="https://git-scm.com/download" target="_blank" rel="external">Git</a></p>
 </li>
-<li><p>装好这两个东西之后，打开git。然后输入以下命令安装Hexo</p>
+<li><p>装好这两个东西之后，打开git bash。然后输入以下命令安装Hexo</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>上面命令好了后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo --save</div></pre></td></tr></table></figure></p>
-<p>如果命令无法运行（很可能是你的网络不好），可以尝试更换taobao的npm源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure></p>
+<p>如果命令无法运行（很可能是你的网络不好），可以尝试更换taobao的npm源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure></p>
 <h4 id="创建Hexo文件夹"><a href="#创建Hexo文件夹" class="headerlink" title="创建Hexo文件夹"></a>创建Hexo文件夹</h4><p>安装完成后，根据自己喜好建立目录（如D:\GitHub\hexo）,然后打开我的电脑，进入到这个文件夹（如D:\GitHub\hexo），右键Git Bash Here，如图<br><img src="http://7xs0cm.com1.z0.glb.clouddn.com/git%20bash%20here.png" alt="git bash here"><br>然后输入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure></p>
-<p>这可能有点久，好了之后再输入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure></p>
-<p>完成之后会在一系列文件。接下来安装Hexo插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-index --save</div><div class="line">npm install hexo-generator-archive --save</div><div class="line">npm install hexo-generator-category --save</div><div class="line">npm install hexo-generator-tag --save</div><div class="line">npm install hexo-server --save</div><div class="line">npm install hexo-deployer-git --save</div><div class="line">npm install hexo-deployer-heroku --save</div><div class="line">npm install hexo-deployer-rsync --save</div><div class="line">npm install hexo-deployer-openshift --save</div><div class="line">npm install hexo-renderer-marked@0.2 --save</div><div class="line">npm install hexo-renderer-stylus@0.2 --save</div><div class="line">npm install hexo-generator-feed@1 --save</div><div class="line">npm install hexo-generator-sitemap@1 --save</div></pre></td></tr></table></figure></p>
-<p>以上命令建议一条一条执行。<br>装好后，继续执行以下命令，成功后可登录 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 查看效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure></p>
+<p>这可能有点久。当然，你也可以在D:\GitHub目录下，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init hexo</div></pre></td></tr></table></figure></p>
+<p>结果，和上面的是一样的。好了之后再输入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<p>这个命令会根据hexo init后所在目录的package.json的dependencies字段来安装hexo要用到的插件。<br>装好后，继续执行以下命令，成功后可登录 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 查看效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure></p>
 <p>上面的命令可以简写为hexo s<br>查看效果后，觉得不错，就可以生成静态网页部署到Github上了。输入命令生成public 静态文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g</div></pre></td></tr></table></figure></p>
 <p>成功后可以看到目录下多了个public的文件夹，然后把文件夹里面的所以东西复制到Github for windows的目录下，然后同步到github，大功告成！</p>
-<p><strong>本文根据自己的实践和参考以下内容编写</strong><br><a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="external">如何搭建一个独立博客——简明Github Pages与Hexo教程</a><br><a href="http://wsgzao.github.io/post/hexo-guide/" target="_blank" rel="external">使用GitHub和Hexo搭建免费静态Blog</a></p>
+<p><strong>本文根据自己的实践和参考以下内容编写</strong><br><a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="external">如何搭建一个独立博客——简明Github Pages与Hexo教程</a><br><a href="http://wsgzao.github.io/post/hexo-guide/" target="_blank" rel="external">使用GitHub和Hexo搭建免费静态Blog</a><br><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo官方文档</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -265,11 +264,11 @@
 			
 		
 			
-				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+				<li><a href="/tags/透明/" title="透明">透明<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/排序/" title="排序">排序<sup>1</sup></a></li>
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
 			
 		
 			
@@ -285,6 +284,10 @@
 			
 		
 			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/zepto/" title="zepto">zepto<sup>1</sup></a></li>
 			
 		
@@ -297,15 +300,11 @@
 			
 		
 			
+				<li><a href="/tags/PlayCanvas/" title="PlayCanvas">PlayCanvas<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/ife/" title="ife">ife<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/npm/" title="npm">npm<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/npminstall/" title="npminstall">npminstall<sup>1</sup></a></li>
 			
 		
 			
@@ -313,27 +312,27 @@
 			
 		
 			
-				<li><a href="/tags/加速/" title="加速">加速<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/PlayCanvas/" title="PlayCanvas">PlayCanvas<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/透明/" title="透明">透明<sup>1</sup></a></li>
+				<li><a href="/tags/排序/" title="排序">排序<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/transparent/" title="transparent">transparent<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/trim/" title="trim">trim<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/图片/" title="图片">图片<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/image/" title="image">image<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/npm/" title="npm">npm<sup>1</sup></a></li>
 			
 		
 		</ul>

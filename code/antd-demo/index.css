@@ -1,0 +1,16 @@
+
+html, body, #root {
+  height: 100%;
+}
+
+.ant-popover-content {
+  width: 100px;
+}
+
+.ant-popover-inner {
+  background-color: #ccc;
+}
+
+.slick-track {
+  height: 100px;
+}

@@ -16,6 +16,7 @@ self.addEventListener('fetch', event => {
 
   // serve the cat SVG from the cache if the request is
   // same-origin and the path is '/dog.svg'
+  console.log(url.origin, location.origin);
   if (url.origin == location.origin && url.pathname == './dog.svg') {
     event.respondWith(caches.match('/cat.svg'));
   }

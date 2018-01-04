@@ -18,6 +18,7 @@ self.addEventListener('fetch', event => {
   // same-origin and the path is '/code/demo/service_worker/dog.svg'
   console.log(url.pathname);
   if (url.origin == location.origin && url.pathname == '/code/demo/service_worker/dog.svg') {
+    console.log('respond cat');
     event.respondWith(caches.match('./cat.svg'));
   }
 });
